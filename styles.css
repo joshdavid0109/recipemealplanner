@@ -1,106 +1,159 @@
-* {
-      font-family: sans-serif;
-      margin: 0%;
-      padding: 0%;
-  }
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*{
+  font-family: Roboto;
+  margin: 0%;
+  padding: 0%;
+}
 
-/* header */  
-.logo {
-      align-self: center;
-      height: 20vmin;
-      width: 20vmin;
-  }
-.title, .motto {
-      display: flex;
-      font-size: 2rem;
-      list-style: none;
-      padding-bottom: 1rem;
-      padding-right: 5px;
-  }
-.green {
-      color: green;
-  }
+li {
+  list-style: none;
+}
+
+/* Header */  
 header {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 2%;
-  }
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+
+header .logo {
+  align-self: center;
+  height: 12vmin;
+  margin: 1.5% 0 0;
+  padding-right: 0.5%;
+}
+
+header .logo-title{
+  font-size: 2.3vw;
+  text-align: center;
+  font-weight: bold;
+  padding: 0 0 0.5%
+}
+
+header .motto{
+  font-size: 1.3vw;
+  font-weight: bold;
+}
+
+header .green {
+  color: #66BB69;
+}
+
 .navbar {
-      align-items: center;
-  }
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .navlinks {
-      display: flex;
-      list-style: none;
-  }
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
 .navlinks > li {
-      font-size: 24px;
-      margin-left: 6rem;
-      padding-right: 6rem;
-      padding-top: 2%;
-  }
+  font-size: 15px;
+  font-weight: bold;
+  gap: 5%;
+}
+
 hr {
-      border-color: green;
-      height: 0px;
-      width: 90%;
-  }
+  border-color: green;
+  height: 0px;
+  width: 90%;
+}
+
 .navlinks > li:hover {
-      color: green;
-  }
+  color: green;
+  cursor: pointer;
+}
 
 /*main*/ 
 .container {
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url(images/test.jpg);
-  }
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(images/test.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
   
-  .heading {
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
-  }
+.heading {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
   
-  .searchInputWrapper {
-    position: relative;
-  }
+.searchInputWrapper {
+  position: relative;
+}
   
-  .searchInput {
-    width: 20rem;
-    height: 2rem;
-    padding: 0 1rem; 
-    border-radius: 2rem;
-    border: none;
-    transition: transform 0.1s ease-in-out;
-    background-color: whitesmoke;
-  }
+.searchInput {
+  width: 20rem;
+  height: 2rem;
+  padding: 0 1rem; 
+  border-radius: 2rem;
+  border: none;
+  transition: transform 0.1s ease-in-out;
+  background-color: whitesmoke;
+}
   
-  ::placeholder {
-    color: black;
-  }
+::placeholder {
+  color: black;
+}
   
   /* hide the placeholder text on focus */
-  :focus::placeholder {
-    text-indent: -999px
-  }
+:focus::placeholder {
+  text-indent: -999px
+}
   
-  .searchInput:focus {
-    outline: none;
-    transform: scale(1.1);
-    transition: all 0.1s ease-in-out;
-  }
+.searchInput:focus {
+  outline: none;
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+}
   
-  .searchInputIcon {
-    position: absolute;
-    right: 0.8rem;
-    top: 0.5rem;
-    color: #a1a1a1;
-    transition: all 0.1s ease-in-out;
-  }
+.searchInputIcon {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.5rem;
+  color: #a1a1a1;
+  transition: all 0.1s ease-in-out;
+}
   
-  .container:focus-within > 
-  .searchInputWrapper > .searchInputIcon {
-    right: 0.2rem;
-  }
+.container:focus-within > 
+.searchInputWrapper > .searchInputIcon {
+  right: 0.2rem;
+}
+
+
+.recipeResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.recipeCard {
+  width: 300px;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.recipeCard img {
+  width: 100%;
+  height: auto;
+}
+
+.recipeCard p {
+  padding: 1rem;
+  text-align: center;
+  background-color: #f2f2f2;
+}
