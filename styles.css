@@ -55,15 +55,8 @@ header .green {
 }
 
 .navlinks > li {
-  font-size: 15px;
+  font-size: 1.1vw;;
   font-weight: bold;
-  gap: 5%;
-}
-
-hr {
-  border-color: green;
-  height: 0px;
-  width: 90%;
 }
 
 .navlinks > li:hover {
@@ -71,7 +64,7 @@ hr {
   cursor: pointer;
 }
 
-/*main*/ 
+/*Main*/ 
 .container {
   height: 50vh;
   display: flex;
@@ -88,7 +81,8 @@ hr {
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
 }
-  
+
+/* Search field */
 .searchInputWrapper {
   position: relative;
 }
@@ -101,15 +95,6 @@ hr {
   border: none;
   transition: transform 0.1s ease-in-out;
   background-color: whitesmoke;
-}
-  
-::placeholder {
-  color: black;
-}
-  
-  /* hide the placeholder text on focus */
-:focus::placeholder {
-  text-indent: -999px
 }
   
 .searchInput:focus {
@@ -131,7 +116,25 @@ hr {
   right: 0.2rem;
 }
 
+/* Filter button */
+.filterButton {
+  text-align: center;
+  margin-top: 20px;
+}
 
+#filterButton {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#filterButton:hover {
+  background-color: #2980b9;
+}
+
+/* Recipe results */
 .recipeResults {
   display: flex;
   flex-wrap: wrap;
@@ -145,6 +148,11 @@ hr {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   overflow: hidden;
+  position: relative;
+  display: flex; /* Use flexbox for vertical centering */
+  flex-direction: column; /* Stack image and nutrition info vertically */
+  align-items: center; /* Center horizontally */
+  text-align: center; /* Center text */
 }
 
 .recipeCard img {
@@ -156,4 +164,70 @@ hr {
   padding: 1rem;
   text-align: center;
   background-color: #f2f2f2;
+}
+
+.recipeCard .nutritionInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.5vw;
+}
+
+.recipeCard:hover .nutritionInfo {
+  display: flex;
+}
+
+.recipeCard img:hover{
+  cursor: pointer;
+}
+
+.recipeCard .nutrients {
+  max-height: 60%; /* Adjust the height as needed */
+  overflow-y: auto;
+}
+
+/* Popup */
+.popupContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); 
+  z-index: 1; 
+}
+
+.popupContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 900px){
+
+  header .logo-title{
+    font-size: 13px;
+  }
+
+  header .motto{
+    font-size: 9px;
+  }
+
+  .navlinks > li {
+    font-size: 8.5px;
+  }
 }
