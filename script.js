@@ -1,13 +1,12 @@
-// Replace 'YOUR_API_KEY' with your actual Spoonacular API key
-const apiKey = '71b69fc73b0248edb265c0ec9bcc7ad3';
+
+const apiKey = '71b69fc73b0248edb265c0ec9bcc7ad3'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
     const recipeResults = document.querySelector('.recipeResults');
 
-    searchInput.addEventListener('keydown', (event) => {
+    searchInput.addEventListener('keyup', (event) => {
         if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent the default form submission
             const query = searchInput.value;
             if (query.trim() !== '') {
                 fetchRecipes(query);
@@ -47,4 +46,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
