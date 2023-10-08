@@ -1,0 +1,106 @@
+* {
+      font-family: sans-serif;
+      margin: 0%;
+      padding: 0%;
+  }
+
+/* header */  
+.logo {
+      align-self: center;
+      height: 20vmin;
+      width: 20vmin;
+  }
+.title, .motto {
+      display: flex;
+      font-size: 2rem;
+      list-style: none;
+      padding-bottom: 1rem;
+      padding-right: 5px;
+  }
+.green {
+      color: green;
+  }
+header {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2%;
+  }
+.navbar {
+      align-items: center;
+  }
+.navlinks {
+      display: flex;
+      list-style: none;
+  }
+.navlinks > li {
+      font-size: 24px;
+      margin-left: 6rem;
+      padding-right: 6rem;
+      padding-top: 2%;
+  }
+hr {
+      border-color: green;
+      height: 0px;
+      width: 90%;
+  }
+.navlinks > li:hover {
+      color: green;
+  }
+
+/*main*/ 
+.container {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(images/test.jpg);
+  }
+  
+  .heading {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .searchInputWrapper {
+    position: relative;
+  }
+  
+  .searchInput {
+    width: 20rem;
+    height: 2rem;
+    padding: 0 1rem; 
+    border-radius: 2rem;
+    border: none;
+    transition: transform 0.1s ease-in-out;
+    background-color: whitesmoke;
+  }
+  
+  ::placeholder {
+    color: black;
+  }
+  
+  /* hide the placeholder text on focus */
+  :focus::placeholder {
+    text-indent: -999px
+  }
+  
+  .searchInput:focus {
+    outline: none;
+    transform: scale(1.1);
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .searchInputIcon {
+    position: absolute;
+    right: 0.8rem;
+    top: 0.5rem;
+    color: #a1a1a1;
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .container:focus-within > 
+  .searchInputWrapper > .searchInputIcon {
+    right: 0.2rem;
+  }
