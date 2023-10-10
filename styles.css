@@ -181,17 +181,18 @@ header .green {
   font-size: 0.5vw;
 }
 
+/* Chart */
+.nutrition-info{
+  height: 80%;
+  color: white;
+}
+
 .recipeCard:hover .nutritionInfo {
   display: flex;
 }
 
 .recipeCard img:hover{
   cursor: pointer;
-}
-
-.recipeCard .nutrients {
-  max-height: 60%; /* Adjust the height as needed */
-  overflow-y: auto;
 }
 
 /* Popup */
