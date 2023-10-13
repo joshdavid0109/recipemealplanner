@@ -1,29 +1,93 @@
-const apiKey = '1f8a5a4bebbe4428b9e3597002636eae'; 
+const apiKey = '71b69fc73b0248edb265c0ec9bcc7ad3'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
     const recipeResults = document.querySelector('.recipeResults');
+    const cuisineFilter = document.getElementById('cuisineFilter');
+    const dietFilter = document.getElementById('dietFilter');
+    const intoleranceFilter = document.getElementById('intoleranceFilter');
+    const typeFilter = document.getElementById('typeFilter');
+    const durationFilter = document.getElementById('durationRange');
+    const durationValue = document.getElementById('durationValue');
 
     searchInput.addEventListener('keyup', (event) => {
         if (event.key === 'Enter') {
             const query = searchInput.value;
-            if (query.trim() !== '') {
-                fetchRecipes(query);
-            }
+            const selectedCuisine = cuisineFilter.value;
+            const selectedDiet = dietFilter.value;
+            const selectedIntolerance = intoleranceFilter.value;
+            const selectedType = typeFilter.value;
+            fetchRecipes(query, selectedCuisine, selectedDiet, selectedIntolerance, selectedType);
         }
     });
 
-    async function fetchRecipes(query) {
-        const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=10&apiKey=${apiKey}`;
+    function fetchRandomRecipes() {
+        const randomQuery = 'random';
+        fetchRecipes(randomQuery, 'Any');
+    }
 
+    fetchRandomRecipes();
+
+    searchInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            const query = searchInput.value;
+            const selectedCuisine = cuisineFilter.value;
+            fetchRecipes(query, selectedCuisine);
+        }
+    });
+
+    cuisineFilter.addEventListener('change', () => {
+        const selectedCuisine = cuisineFilter.value;
+
+        if (selectedCuisine === 'Any') {
+            fetchRandomRecipes();
+        } else {
+            fetchRecipes('', selectedCuisine);
+        }
+    });
+
+    durationFilter.addEventListener('input', () => {
+        const selectedDuration = durationFilter.value;
+        if (selectedDuration === '0') {
+            durationValue.textContent = 'Any';
+        } else {
+            durationValue.textContent = `Under ${selectedDuration} minutes`;
+        }
+    
+        const query = searchInput.value;
+        const selectedCuisine = cuisineFilter.value;
+        const selectedDiet = dietFilter.value;
+        const selectedIntolerance = intoleranceFilter.value;
+        const selectedType = typeFilter.value;
+        fetchRecipes(query, selectedCuisine, selectedDiet, selectedIntolerance, selectedType, selectedDuration);
+    });
+    
+    async function fetchRecipes(query, cuisine, diet, intolerance, type) {
+        let apiUrl;
+
+        if (cuisine === 'Any') {
+            const randomQueries = ['breakfast', 'lunch', 'dinner', 'snack'];
+            const randomQuery = randomQueries[Math.floor(Math.random() * randomQueries.length)];
+            apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${randomQuery}&number=8&apiKey=${apiKey}`;
+        } else {
+            apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=10&cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&type=${type}&max_ready_time=${duration}&apiKey=${apiKey}`;
+        }
+    
         try {
             const response = await fetch(apiUrl);
+    
+            if (!response.ok) {
+                console.error('Failed to fetch recipes. Response status:', response.status);
+                return;
+            }
+    
             const data = await response.json();
             displayRecipes(data.results);
         } catch (error) {
             console.error('Error fetching recipes:', error);
         }
     }
+    
 
     function displayRecipes(recipes) {
         recipeResults.innerHTML = ''; 

@@ -116,22 +116,71 @@ header .green {
   right: 0.2rem;
 }
 
-/* Filter button */
-.filterButton {
-  text-align: center;
-  margin-top: 20px;
+/* Filters*/
+.filter-container {
+  border: 2px solid #66BB69;
+  border-radius: 20px;
+  display: flex;
+  gap: 10px;
+  margin: 3% 5% 3%;
+  padding: 2% 0 2%;
+  font-size: 1vw;
+  justify-content: center;
 }
 
-#filterButton {
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
+label {
+  font-weight: bold;
+  margin-right: 5px;
+  align-self: center;
+}
+
+select {
+  padding: 8px;
+  border: 2px solid#66BB69;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 14px;
+  outline: none;
+  transition: background-color 0.3s;
   cursor: pointer;
 }
 
-#filterButton:hover {
-  background-color: #2980b9;
+select:focus {
+  background-color: #66BB69;
+  color: white;
+  outline: none;
+}
+
+select option:checked {
+  background-color: green;
+  color: #fff;
+}
+
+select option:checked::selection {
+  background-color: green; 
+  color: #fff;
+}
+
+.duration-slider {
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+
+.duration-slider input[type="range"] {
+  width: 100%;
+  margin: 0 10px;
+}
+
+.duration-slider span#durationValue {
+  font-weight: bold;
+  width: 100%;
+}
+
+.duration-slider input[type="range"] {
+  background-color: #66BB69; 
+  height: 15px; 
+  border-radius: 20px;
 }
 
 /* Recipe results */
@@ -293,5 +342,25 @@ header .green {
 
   .recipeCard .recipe-title {
     font-size: 80%;
+  }
+
+  /* Filters */
+  .filter-container {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  .separation-1, .separation-2{
+    gap: 5px;
+    justify-content: space-between;
+  }
+
+  select {
+    width: 50%;
   }
 }

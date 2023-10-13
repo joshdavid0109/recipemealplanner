@@ -34,9 +34,91 @@
                 <i class="searchInputIcon fa fa-search"></i>
             </div>
         </div>
-        <div class="recipeResults">
-           
+        <div class="filter-container">
+            <label for="cuisineFilter">Cuisine:</label>
+            <select id="cuisineFilter">
+                <option value="Any">Any</option>
+                <option value="african">African</option>
+                <option value="american">American</option>
+                <option value="british">British</option>
+                <option value="cajun">Cajun</option>
+                <option value="caribbean">Caribbean</option>
+                <option value="chinese">Chinese</option>
+                <option value="eastern european">Eastern European</option>
+                <option value="french">French</option>
+                <option value="german">German</option>
+                <option value="greek">Greek</option>
+                <option value="indian">Indian</option>
+                <option value="japanese">Japanese</option>
+                <option value="jewish">Jewish</option>
+                <option value="korean">Korean</option>
+                <option value="latin american">Latin American</option>
+                <option value="mexican">Mexican</option>
+                <option value="middle eastern">Middle Eastern</option>
+                <option value="nordic">Nordic</option>
+                <option value="southern">Southern</option>
+                <option value="spanish">Spanish</option>
+                <option value="thai">Thai</option>
+                <option value="vietnamese">Vietnamese</option>
+            </select>
+
+            <label for="dietFilter">Diet:</label>
+            <select id="dietFilter">
+                <option value="Any">Any</option>
+                <option value="Ketogenic">Ketogenic</option>
+                <option value="Paleo">Paleo</option>
+                <option value="Primal">Primal</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Whole 30">Whole 30</option>
+            </select>
+        
+            <label for="intoleranceFilter">Intolerances:</label>
+            <select id="intoleranceFilter">
+                <option value="None">None</option>
+                <option value="Dairy Free">Dairy Free</option>
+                <option value="Egg Free">Egg Free</option>
+                <option value="Gluten Free">Gluten Free</option>
+                <option value="Grain Free">Grain Free</option>
+                <option value="Peanut Free">Peanut Free</option>
+                <option value="Seafood Free">Seafood Free</option>
+                <option value="Sesame Free">Sesame Free</option>
+                <option value="Shellfish Free">Shellfish Free</option>
+                <option value="Soy Free">Soy Free</option>
+                <option value="Sulfite Free">Sulfite Free</option>
+                <option value="Tree Nut Free">Tree Nut Free</option>
+                <option value="Wheat Free">Wheat Free</option>
+            </select>
+
+            <label for="typeFilter">Type:</label>
+            <select id="typeFilter">
+                <option value="Any">Any</option>
+                <option value="Appetizer/Snack">Appetizer/Snack</option>
+                <option value="Batter">Batter</option>
+                <option value="Beverage">Beverage</option>
+                <option value="Bread">Bread</option>
+                <option value="Breakfast/Brunch">Breakfast/Brunch</option>
+                <option value="Crust">Crust</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Drink/Cocktail">Drink/Cocktail</option>
+                <option value="Frosting/Icing">Frosting/Icing</option>
+                <option value="Main Course">Main Course</option>
+                <option value="Salad">Salad</option>
+                <option value="Sauce">Sauce</option>
+                <option value="Spread">Spread</option>
+                <option value="Seasoning/Marinade">Seasoning/Marinade</option>
+                <option value="Side Dish">Side Dish</option>
+                <option value="Soup">Soup</option>
+            </select>
+
+            <label for="durationFilter">Time:</label>
+            <div class="duration-slider">
+                <input type="range" id="durationRange" min="0" max="119" value="0">
+                <span id="durationValue">Any</span>
+            </div>
+            
         </div>
+        <div class="recipeResults"></div>
         <div id="popupContainer" class="popupContainer">
             <div class="popupContent"></div>
         </div>
