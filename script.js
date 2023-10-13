@@ -32,12 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const recipeCard = document.createElement('div');
             recipeCard.classList.add('recipeCard');
 
+            const spoonacularContainer = document.createElement('div');
+            spoonacularContainer.classList.add('spoonacular');
+            const spoonacularLogo = document.createElement('img');
+            spoonacularLogo.classList.add('spoonacular-logo');
+            spoonacularLogo.src = './images/spoonacular.png';
+            spoonacularLogo.alt = 'https://spoonacular.com/';
+            const spoonacularName = document.createElement('p');
+            spoonacularName.classList.add('spoonacular-name');
+            spoonacularName.textContent = 'spoonacular';
+
+            spoonacularContainer.appendChild(spoonacularLogo);
+            spoonacularContainer.appendChild(spoonacularName);
+
             recipeCard.addEventListener('click', () => {
                 const popupContainer = document.getElementById('popupContainer');
                 const popupContent = document.querySelector('.popupContent');
                 popupContent.innerHTML = `
-                    <img src="${recipe.image}" alt="${recipe.title}">
-                    <p>${recipe.title}</p>
+                    <img class = "recipe-img" src="${recipe.image}" alt="${recipe.title}">
+                    <p class = "recipe-title">${recipe.title}</p>
                     <!-- Add more recipe details here -->
                 `;
                 popupContainer.style.display = 'block';
@@ -45,7 +58,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const recipeImage = document.createElement('img');
             recipeImage.src = recipe.image;
-            recipeImage.alt = recipe.title;
+
+            const heartContainer = document.createElement('div');
+            heartContainer.classList.add('heart-container');
+            const heart = document.createElement('div');
+            heart.classList.add('heart', 'darkgreen-heart');
+            const darkgreenHeart = document.createElement('img');
+            darkgreenHeart.src = './images/darkgreen-heart.png';
+            darkgreenHeart.alt = 'https://clipart-library.com/free/green-heart-transparent-background.html';
+            const lightgreenHeart = document.createElement('div');
+            lightgreenHeart.classList.add('lightgreen-heart');
+            const lightgreenHeartImg = document.createElement('img');
+            lightgreenHeartImg.src = './images/lightgreen-heart.png';
+            lightgreenHeartImg.alt = 'https://clipart-library.com/free/green-heart-transparent-background.html';
+    
+            lightgreenHeart.appendChild(lightgreenHeartImg);
+            heart.appendChild(darkgreenHeart);
+            heart.appendChild(lightgreenHeart);
+
+            const titleContainer = document.createElement('div');
+            titleContainer.classList.add('recipe-title-container');
+
+            const recipeTitle = document.createElement('p');
+            recipeTitle.classList.add('recipe-title');
+            recipeTitle.textContent = recipe.title;
 
             const nutritionInfo = document.createElement('div');
             nutritionInfo.classList.add('nutritionInfo');
@@ -67,8 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const recipeName = document.createElement('p');
             recipeName.textContent = recipe.title;
 
+            heartContainer.appendChild(heart);
+
+            titleContainer.appendChild(heartContainer);
+            titleContainer.appendChild(recipeTitle);
+
+            recipeCard.appendChild(spoonacularContainer);
             recipeCard.appendChild(recipeImage);
-            recipeCard.appendChild(recipeName);
+            recipeCard.appendChild(titleContainer);
             recipeCard.appendChild(nutritionInfo);
             recipeResults.appendChild(recipeCard);
         });
@@ -158,4 +200,4 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
     }
-});// end of document.addEventListener
+});
