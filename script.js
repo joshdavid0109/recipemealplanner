@@ -1,4 +1,4 @@
-const apiKey = '71b69fc73b0248edb265c0ec9bcc7ad3'; 
+const apiKey = 'caf48c542cf34b56bc4c3926b208a94b'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const durationFilter = document.getElementById('durationRange');
     const durationValue = document.getElementById('durationValue');
 
+
+    // Search Recipes
     searchInput.addEventListener('keyup', (event) => {
         if (event.key === 'Enter') {
             const query = searchInput.value;
@@ -62,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchRecipes(query, selectedCuisine, selectedDiet, selectedIntolerance, selectedType, selectedDuration);
     });
     
-    async function fetchRecipes(query, cuisine, diet, intolerance, type) {
+    // Filters
+    async function fetchRecipes(query, cuisine, diet, intolerance, type, duration) {
         let apiUrl;
 
         if (cuisine === 'Any') {
