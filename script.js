@@ -1,4 +1,14 @@
-const apiKey = 'caf48c542cf34b56bc4c3926b208a94b'; 
+// API KEYS:
+// 71b69fc73b0248edb265c0ec9bcc7ad3 (Used up for 10/26/2023)
+// caf48c542cf34b56bc4c3926b208a94b (Used up for 10/26/2023)
+// cea59ef24546496894acd5f36606d04d (Used up for 10/26/2023)
+// d11c4d40523f46a5a767e57254b8fe2d (Used up for 10/26/2023)
+// 118e02b187ec440387921fa4646524e7 (Used up for 10/26/2023)
+// 1763e0afde7a465f9a24dc4cef3fdf37 (Used up for 10/26/2023)
+// 
+// 
+
+const apiKey = '89db2d3f161943dbb7bff3f0eab5bc60'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
@@ -7,11 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dietFilter = document.getElementById('dietFilter');
     const intoleranceFilter = document.getElementById('intoleranceFilter');
     const typeFilter = document.getElementById('typeFilter');
-    const durationFilter = document.getElementById('durationRange');
-    const durationValue = document.getElementById('durationValue');
+    const filterControls = [cuisineFilter, dietFilter, intoleranceFilter, typeFilter];
 
-
-    // Search Recipes
+    // search input recipes
     searchInput.addEventListener('keyup', (event) => {
         if (event.key === 'Enter') {
             const query = searchInput.value;
@@ -22,59 +30,53 @@ document.addEventListener('DOMContentLoaded', () => {
             fetchRecipes(query, selectedCuisine, selectedDiet, selectedIntolerance, selectedType);
         }
     });
+    
+    // automatically fetch for recipes
+    fetchRecipes('', 'Any', 'Any', 'None', 'Any');
 
-    function fetchRandomRecipes() {
-        const randomQuery = 'random';
-        fetchRecipes(randomQuery, 'Any');
-    }
-
-    fetchRandomRecipes();
-
-    searchInput.addEventListener('keyup', (event) => {
-        if (event.key === 'Enter') {
-            const query = searchInput.value;
+    filterControls.forEach((control) => {
+        control.addEventListener('change', () => {
             const selectedCuisine = cuisineFilter.value;
-            fetchRecipes(query, selectedCuisine);
-        }
+            const selectedDiet = dietFilter.value;
+            const selectedIntolerance = intoleranceFilter.value;
+            const selectedType = typeFilter.value;
+            fetchRecipes(searchInput.value, selectedCuisine, selectedDiet, selectedIntolerance, selectedType);
+        });
     });
 
-    cuisineFilter.addEventListener('change', () => {
-        const selectedCuisine = cuisineFilter.value;
-
-        if (selectedCuisine === 'Any') {
-            fetchRandomRecipes();
-        } else {
-            fetchRecipes('', selectedCuisine);
-        }
-    });
-
-    durationFilter.addEventListener('input', () => {
-        const selectedDuration = durationFilter.value;
-        if (selectedDuration === '0') {
-            durationValue.textContent = 'Any';
-        } else {
-            durationValue.textContent = `Under ${selectedDuration} minutes`;
-        }
     
-        const query = searchInput.value;
-        const selectedCuisine = cuisineFilter.value;
-        const selectedDiet = dietFilter.value;
-        const selectedIntolerance = intoleranceFilter.value;
-        const selectedType = typeFilter.value;
-        fetchRecipes(query, selectedCuisine, selectedDiet, selectedIntolerance, selectedType, selectedDuration);
-    });
-    
-    // Filters
+    // fetching of data
     async function fetchRecipes(query, cuisine, diet, intolerance, type, duration) {
         let apiUrl;
 
-        if (cuisine === 'Any') {
-            const randomQueries = ['breakfast', 'lunch', 'dinner', 'snack'];
-            const randomQuery = randomQueries[Math.floor(Math.random() * randomQueries.length)];
-            apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${randomQuery}&number=8&apiKey=${apiKey}`;
-        } else {
-            apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=10&cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&type=${type}&max_ready_time=${duration}&apiKey=${apiKey}`;
+        // object to hold the query parameters
+        const queryParams = {
+            number: 10,
+            apiKey: apiKey,
+        };
+    
+        if (query) {
+            queryParams.query = query;
         }
+    
+        if (cuisine !== 'Any') {
+            queryParams.cuisine = cuisine;
+        }
+    
+        if (diet !== 'Any') {
+            queryParams.diet = diet;
+        }
+    
+        if (intolerance !== 'None') {
+            queryParams.intolerances = intolerance;
+        }
+    
+        if (type !== 'Any') {
+            queryParams.type = type;
+        }
+    
+        // Construct the API URL with all the query parameters
+        apiUrl = `https://api.spoonacular.com/recipes/complexSearch?${new URLSearchParams(queryParams)}`;
     
         try {
             const response = await fetch(apiUrl);
@@ -112,13 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
             spoonacularContainer.appendChild(spoonacularLogo);
             spoonacularContainer.appendChild(spoonacularName);
 
-            recipeCard.addEventListener('click', () => {
+            recipeCard.addEventListener('click', async () => {
                 const popupContainer = document.getElementById('popupContainer');
                 const popupContent = document.querySelector('.popupContent');
                 popupContent.innerHTML = `
                     <img class = "recipe-img" src="${recipe.image}" alt="${recipe.title}">
                     <p class = "recipe-title">${recipe.title}</p>
-                    <!-- Add more recipe details here -->
                 `;
                 popupContainer.style.display = 'block';
             });
@@ -179,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             recipeCard.appendChild(recipeImage);
             recipeCard.appendChild(titleContainer);
             recipeCard.appendChild(nutritionInfo);
-            recipeResults.appendChild(recipeCard);
+            recipeResults.appendChild(recipeCard); 
         });
     }
 
@@ -267,4 +268,5 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
     }
+    
 });

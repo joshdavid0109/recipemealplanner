@@ -110,17 +110,22 @@
                 <option value="Side Dish">Side Dish</option>
                 <option value="Soup">Soup</option>
             </select>
-
-            <label for="durationFilter">Time:</label>
-            <div class="duration-slider">
-                <input type="range" id="durationRange" min="0" max="119" value="0">
-                <span id="durationValue">Any</span>
-            </div>
             
         </div>
         <div class="recipeResults"></div>
         <div id="popupContainer" class="popupContainer">
             <div class="popupContent"></div>
+            <div id="nutrientsSection" class="popupSection">
+                <!-- Nutrients will be displayed here -->
+            </div>
+            
+            <div id="ingredientsSection" class="popupSection">
+                <!-- Ingredients will be displayed here -->
+            </div>
+            
+            <div id="stepsSection" class="popupSection">
+                <!-- Steps will be displayed here -->
+            </div>
         </div>
         <div class="popupNutrition"></div>
     </main>
