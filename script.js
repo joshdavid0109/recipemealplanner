@@ -5,10 +5,12 @@
 // d11c4d40523f46a5a767e57254b8fe2d (Used up for 10/26/2023)
 // 118e02b187ec440387921fa4646524e7 (Used up for 10/26/2023)
 // 1763e0afde7a465f9a24dc4cef3fdf37 (Used up for 10/26/2023)
-// 
-// 
+// 19281d0d346840bcaef8a59a0eb8c854
+// c083735428e14965adfef8724ac6c9c6
+// ef33a96b0f7e4e488bb63498044aac80
+// 3af2c1b768344eb09015826b34842396
 
-const apiKey = '89db2d3f161943dbb7bff3f0eab5bc60'; 
+const apiKey = '19281d0d346840bcaef8a59a0eb8c854'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
@@ -18,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const intoleranceFilter = document.getElementById('intoleranceFilter');
     const typeFilter = document.getElementById('typeFilter');
     const filterControls = [cuisineFilter, dietFilter, intoleranceFilter, typeFilter];
+
+    let currentRecipeId = null;
 
     // search input recipes
     searchInput.addEventListener('keyup', (event) => {
@@ -117,11 +121,24 @@ document.addEventListener('DOMContentLoaded', () => {
             recipeCard.addEventListener('click', async () => {
                 const popupContainer = document.getElementById('popupContainer');
                 const popupContent = document.querySelector('.popupContent');
-                popupContent.innerHTML = `
-                    <img class = "recipe-img" src="${recipe.image}" alt="${recipe.title}">
-                    <p class = "recipe-title">${recipe.title}</p>
-                `;
-                popupContainer.style.display = 'block';
+                try {
+                    const recipeInfo = await fetchRecipeInfo(recipe.id);
+                    const nutritionData = await fetchNutritionData(recipe.id);
+                
+                    const nutrientsHTML = generateNutrientsHTML(nutritionData.nutrients);
+                    const ingredientsHTML = generateIngredientsHTML(recipeInfo);
+                    const stepsHTML = generateStepsHTML(recipeInfo);
+                    popupContent.innerHTML = `
+                        ${nutrientsHTML}
+                        ${ingredientsHTML}
+                        ${stepsHTML}
+                    `;
+                    // <img class = "recipe-img" src="${recipe.image}" alt="${recipe.title}">
+                    // 
+                        popupContainer.style.display = 'block';
+                } catch (error) {
+                    console.error('Error fetching or displaying nutrition data:', error);
+                }
             });
 
             const recipeImage = document.createElement('img');
@@ -182,6 +199,66 @@ document.addEventListener('DOMContentLoaded', () => {
             recipeCard.appendChild(nutritionInfo);
             recipeResults.appendChild(recipeCard); 
         });
+    }
+
+    async function fetchRecipeInfo(recipeId) {
+        const apiUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`;
+    
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching recipe information:', error);
+            throw error;
+        }
+    }
+    
+    function generateNutrientsHTML(nutritionData) {
+        const nutrientsHTML = `
+            <div class="nutrients-container">
+                <h2>Nutrients</h2>
+                <ol>
+                    ${nutritionData.map(nutrient => `<li>${nutrient.name}: ${nutrient.amount} ${nutrient.unit}</li>`).join('')}
+                </ol>
+            </div>
+        `;
+    
+        return nutrientsHTML;
+    }
+    
+    function generateIngredientsHTML(recipeInfo) {
+        const ingredientsData = recipeInfo.extendedIngredients;
+    
+        const ingredientsHTML = `
+            <div class="ingredients-container">
+                <h2>Ingredients</h2>
+                <ul>
+                    ${ingredientsData.map(ingredient => `<li>${ingredient.original}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    
+        return ingredientsHTML;
+    }
+    
+    function generateStepsHTML(recipeInfo) {
+        const analyzedInstructions = recipeInfo.analyzedInstructions;
+    
+        if (analyzedInstructions.length === 0) {
+            return '';
+        }
+    
+        const stepsHTML = `
+        <div class="steps-container">
+            <h2>Steps</h2>
+            <ol>
+                ${analyzedInstructions[0].steps.map((step, index) => `<li>${index + 1}. ${step.step}</li>`).join('')}
+            </ol>
+        </div>
+        `;
+    
+        return stepsHTML;
     }
 
     async function fetchNutritionData(recipeId) {

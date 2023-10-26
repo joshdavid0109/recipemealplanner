@@ -88,7 +88,7 @@ header .green {
 }
   
 .searchInput {
-  width: 20rem;
+  width: 25rem;
   height: 2rem;
   padding: 0 1rem; 
   border-radius: 2rem;
@@ -121,8 +121,8 @@ header .green {
   border: 2px solid #66BB69;
   border-radius: 20px;
   display: flex;
-  gap: 10px;
-  margin: 3% 5% 3%;
+  gap: 50px;
+  margin: 3% 10% 3%;
   padding: 2% 0 2%;
   font-size: 1vw;
   justify-content: center;
@@ -308,11 +308,55 @@ select option:checked::selection {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  width: 1500px;
+  height: 500px;
+  gap: 15px;
 }
+
+.nutrients-container{
+  width: 20%;
+}
+
+.ingredients-container{
+  width: 25%;
+}
+
+.steps-container{
+  width: 55%;
+}
+
+.nutrients-container, .ingredients-container, .steps-container{
+  border: 2px solid green;
+  background-color: white;
+  padding: 20px 40px 40px;
+  border-radius: 20px;
+  overflow: auto;
+  height: 100%;
+}
+
+.nutrients-container h2, .ingredients-container h2, .steps-container h2{
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.nutrients-container ol, .ingredients-container ul, .steps-container ol{
+  border: 2px solid green;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.steps-container ol {
+  list-style-type: decimal; 
+}
+
+.nutrients-container li, .ingredients-container li, .steps-container li {
+  margin-bottom: 10px;
+}
+
+
 
 @media screen and (max-width: 900px){
 
