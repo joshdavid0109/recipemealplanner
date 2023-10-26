@@ -5,23 +5,23 @@
 // d11c4d40523f46a5a767e57254b8fe2d (Used up for 10/26/2023)
 // 118e02b187ec440387921fa4646524e7 (Used up for 10/26/2023)
 // 1763e0afde7a465f9a24dc4cef3fdf37 (Used up for 10/26/2023)
-// 19281d0d346840bcaef8a59a0eb8c854
+// 19281d0d346840bcaef8a59a0eb8c854 (Used up for 10/26/2023)
 // c083735428e14965adfef8724ac6c9c6
 // ef33a96b0f7e4e488bb63498044aac80
 // 3af2c1b768344eb09015826b34842396
 
-const apiKey = '19281d0d346840bcaef8a59a0eb8c854'; 
+const apiKey = 'c083735428e14965adfef8724ac6c9c6'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
+    const autocompleteResults = document.querySelector('.autocompleteResults');
     const recipeResults = document.querySelector('.recipeResults');
     const cuisineFilter = document.getElementById('cuisineFilter');
     const dietFilter = document.getElementById('dietFilter');
     const intoleranceFilter = document.getElementById('intoleranceFilter');
     const typeFilter = document.getElementById('typeFilter');
     const filterControls = [cuisineFilter, dietFilter, intoleranceFilter, typeFilter];
-
-    let currentRecipeId = null;
+    const noResultsMessage = document.querySelector('.noResultsMessage');
 
     // search input recipes
     searchInput.addEventListener('keyup', (event) => {
@@ -34,6 +34,62 @@ document.addEventListener('DOMContentLoaded', () => {
             fetchRecipes(query, selectedCuisine, selectedDiet, selectedIntolerance, selectedType);
         }
     });
+
+        // search input recipes
+        searchInput.addEventListener('keyup', async (event) => {
+            const query = searchInput.value.trim(); 
+            if (query === '') {
+                autocompleteResults.innerHTML = '';
+                autocompleteResults.style.display = 'none';
+                return;
+            }
+            const suggestions = await fetchAutocompleteSuggestions(query);
+            renderAutocompleteSuggestions(suggestions);
+        });
+    
+        // autocomplete suggestions
+        async function fetchAutocompleteSuggestions(query) {
+            const apiUrl = `https://api.spoonacular.com/recipes/autocomplete?apiKey=${apiKey}&query=${query}&number=5`;
+    
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    console.error('Failed to fetch autocomplete suggestions. Response status:', response.status);
+                    return [];
+                }
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching autocomplete suggestions:', error);
+                return [];
+            }
+        }
+    
+        // render autocomplete suggestions
+        function renderAutocompleteSuggestions(suggestions) {
+            if (suggestions.length === 0) {
+                autocompleteResults.innerHTML = '';
+                autocompleteResults.style.display = 'none';
+                return;
+            }
+    
+            const suggestionsHTML = suggestions.map((suggestion) => {
+                return `<div class="autocomplete-suggestion">${suggestion.title}</div>`;
+            }).join('');
+    
+            autocompleteResults.innerHTML = suggestionsHTML;
+            autocompleteResults.style.display = 'block';
+    
+            const suggestionElements = document.querySelectorAll('.autocomplete-suggestion');
+            suggestionElements.forEach((suggestionElement) => {
+                suggestionElement.addEventListener('click', () => {
+                    searchInput.value = suggestionElement.textContent;
+                    autocompleteResults.innerHTML = '';
+                    autocompleteResults.style.display = 'none';
+                });
+            });
+        };
+    
     
     // automatically fetch for recipes
     fetchRecipes('', 'Any', 'Any', 'None', 'Any');
@@ -91,6 +147,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
     
             const data = await response.json();
+
+            if (data.results.length === 0) {
+                noResultsMessage.textContent = `Found 0 search results for "${query}"`;
+            } else {
+                noResultsMessage.textContent = '';
+            }
+
             displayRecipes(data.results);
         } catch (error) {
             console.error('Error fetching recipes:', error);
