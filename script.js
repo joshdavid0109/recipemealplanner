@@ -1,16 +1,16 @@
 // API KEYS:
-// 71b69fc73b0248edb265c0ec9bcc7ad3 (Used up for 10/26/2023)
+// 71b69fc73b0248edb265c0ec9bcc7ad3 (Used up for 10/27/2023)
 // caf48c542cf34b56bc4c3926b208a94b (Used up for 10/26/2023)
 // cea59ef24546496894acd5f36606d04d (Used up for 10/26/2023)
 // d11c4d40523f46a5a767e57254b8fe2d (Used up for 10/26/2023)
 // 118e02b187ec440387921fa4646524e7 (Used up for 10/26/2023)
 // 1763e0afde7a465f9a24dc4cef3fdf37 (Used up for 10/26/2023)
 // 19281d0d346840bcaef8a59a0eb8c854 (Used up for 10/26/2023)
-// c083735428e14965adfef8724ac6c9c6
-// ef33a96b0f7e4e488bb63498044aac80
-// 3af2c1b768344eb09015826b34842396
+// c083735428e14965adfef8724ac6c9c6 (Used up for 10/27/2023)
+// ef33a96b0f7e4e488bb63498044aac80 (Used up for 10/27/2023)
+// 3af2c1b768344eb09015826b34842396 (Used up for 10/27/2023)
 
-const apiKey = 'c083735428e14965adfef8724ac6c9c6'; 
+const apiKey = 'caf48c542cf34b56bc4c3926b208a94b'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
@@ -191,18 +191,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     const nutrientsHTML = generateNutrientsHTML(nutritionData.nutrients);
                     const ingredientsHTML = generateIngredientsHTML(recipeInfo);
                     const stepsHTML = generateStepsHTML(recipeInfo);
+                    // ${nutrientsHTML}
+                    // ${ingredientsHTML}
+                    // ${stepsHTML}
                     popupContent.innerHTML = `
-                        ${nutrientsHTML}
-                        ${ingredientsHTML}
-                        ${stepsHTML}
-                    `;
+                        <div class="div-1">
+                            <div class="pop-up-logo-box"></div>
+                           
+                        </div>
+                        <div class="div-2">
+                            ${ingredientsHTML}
+                            ${stepsHTML}
+                        </div>
+                        <div class="div-3">
+
+                            
+                        </div>
+                    `; 
                     // <img class = "recipe-img" src="${recipe.image}" alt="${recipe.title}">
-                    // 
                         popupContainer.style.display = 'block';
+                        const imageContainer = document.querySelector('.div-3');
+                        imageContainer.style.backgroundImage = `url(${recipe.image})`;
                 } catch (error) {
                     console.error('Error fetching or displaying nutrition data:', error);
                 }
             });
+
+            
+
 
             const recipeImage = document.createElement('img');
             recipeImage.src = recipe.image;
@@ -263,6 +279,8 @@ document.addEventListener('DOMContentLoaded', () => {
             recipeResults.appendChild(recipeCard); 
         });
     }
+
+   
 
     async function fetchRecipeInfo(recipeId) {
         const apiUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`;
