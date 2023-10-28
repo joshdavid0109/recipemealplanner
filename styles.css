@@ -88,13 +88,14 @@ header .green {
 }
   
 .searchInput {
-  width: 25rem;
-  height: 2rem;
+  width: 35rem;
+  height: 2.5rem;
   padding: 0 1rem; 
   border-radius: 2rem;
   border: 2px solid #66BB69;
   transition: transform 0.1s ease-in-out;
   background-color: whitesmoke;
+  font-size: 1vw;
 }
   
 .searchInput:focus {
@@ -106,7 +107,7 @@ header .green {
 .searchInputIcon {
   position: absolute;
   right: 0.8rem;
-  top: 0.5rem;
+  top: 0.8rem;
   color: #a1a1a1;
   transition: all 0.1s ease-in-out;
 }
@@ -382,6 +383,19 @@ select option:checked::selection {
 }
 
 @media screen and (max-width: 1500px){
+  /* Search field */
+  .searchInput {
+    width: 30rem; 
+    height: 3rem;
+    font-size: 17px;
+  }
+
+  .searchInputIcon {
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+  }
+
   /* Filters */
   .filter-container {
     gap: 15px;
@@ -389,7 +403,7 @@ select option:checked::selection {
     font-size: 1.5vw;
   }
   select {
-    font-size: 1vw;
+    font-size: 10px;
   }
 
     /* Popup container */
@@ -399,6 +413,18 @@ select option:checked::selection {
 }
 
 @media screen and (max-width: 900px){
+  /* Search field */
+  .searchInput {
+    width: 30rem; 
+    height: 3rem;
+    font-size: 15px;
+  }
+
+  .searchInputIcon {
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+  }
 
   /* Header */
   header .logo-title{
@@ -436,7 +462,7 @@ select option:checked::selection {
   }
   
   select {
-    font-size: 1vw;
+    font-size: 10px;
   }
 
   /* Popup container */

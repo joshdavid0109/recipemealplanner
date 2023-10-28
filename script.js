@@ -35,60 +35,60 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-        // search input recipes
-        searchInput.addEventListener('keyup', async (event) => {
-            const query = searchInput.value.trim(); 
-            if (query === '') {
-                autocompleteResults.innerHTML = '';
-                autocompleteResults.style.display = 'none';
-                return;
-            }
-            const suggestions = await fetchAutocompleteSuggestions(query);
-            renderAutocompleteSuggestions(suggestions);
-        });
-    
-        // autocomplete suggestions
-        async function fetchAutocompleteSuggestions(query) {
-            const apiUrl = `https://api.spoonacular.com/recipes/autocomplete?apiKey=${apiKey}&query=${query}&number=5`;
-    
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    console.error('Failed to fetch autocomplete suggestions. Response status:', response.status);
-                    return [];
-                }
-                const data = await response.json();
-                return data;
-            } catch (error) {
-                console.error('Error fetching autocomplete suggestions:', error);
+    // search input recipes
+    searchInput.addEventListener('keyup', async (event) => {
+        const query = searchInput.value.trim(); 
+        if (query === '') {
+            autocompleteResults.innerHTML = '';
+            autocompleteResults.style.display = 'none';
+            return;
+        }
+        const suggestions = await fetchAutocompleteSuggestions(query);
+        renderAutocompleteSuggestions(suggestions);
+    });
+
+    // autocomplete suggestions
+    async function fetchAutocompleteSuggestions(query) {
+        const apiUrl = `https://api.spoonacular.com/recipes/autocomplete?apiKey=${apiKey}&query=${query}&number=5`;
+
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                console.error('Failed to fetch autocomplete suggestions. Response status:', response.status);
                 return [];
             }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching autocomplete suggestions:', error);
+            return [];
         }
-    
-        // render autocomplete suggestions
-        function renderAutocompleteSuggestions(suggestions) {
-            if (suggestions.length === 0) {
+    }
+
+    // render autocomplete suggestions
+    function renderAutocompleteSuggestions(suggestions) {
+        if (suggestions.length === 0) {
+            autocompleteResults.innerHTML = '';
+            autocompleteResults.style.display = 'none';
+            return;
+        }
+
+        const suggestionsHTML = suggestions.map((suggestion) => {
+            return `<div class="autocomplete-suggestion">${suggestion.title}</div>`;
+        }).join('');
+
+        autocompleteResults.innerHTML = suggestionsHTML;
+        autocompleteResults.style.display = 'block';
+
+        const suggestionElements = document.querySelectorAll('.autocomplete-suggestion');
+        suggestionElements.forEach((suggestionElement) => {
+            suggestionElement.addEventListener('click', () => {
+                searchInput.value = suggestionElement.textContent;
                 autocompleteResults.innerHTML = '';
                 autocompleteResults.style.display = 'none';
-                return;
-            }
-    
-            const suggestionsHTML = suggestions.map((suggestion) => {
-                return `<div class="autocomplete-suggestion">${suggestion.title}</div>`;
-            }).join('');
-    
-            autocompleteResults.innerHTML = suggestionsHTML;
-            autocompleteResults.style.display = 'block';
-    
-            const suggestionElements = document.querySelectorAll('.autocomplete-suggestion');
-            suggestionElements.forEach((suggestionElement) => {
-                suggestionElement.addEventListener('click', () => {
-                    searchInput.value = suggestionElement.textContent;
-                    autocompleteResults.innerHTML = '';
-                    autocompleteResults.style.display = 'none';
-                });
             });
-        };
+        });
+    };
     
     
     // automatically fetch for recipes
