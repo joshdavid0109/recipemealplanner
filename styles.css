@@ -235,20 +235,6 @@ select option:checked::selection {
   height: auto;
 }
 
-.heart-container .lightgreen-heart {
-  position:absolute;
-  top: 0;
-  left: 0;
-  display: none;
-  transition: opacity 0.3s ease;
-}
-
-.heart-container:hover .lightgreen-heart {
-  display: block;
-  opacity: 1; 
-  transform: scale(1.3);
-}
-
 .recipeCard .recipe-title {
   text-align: center;
   width: 100%;
@@ -304,8 +290,6 @@ select option:checked::selection {
 }
 
 .popupContent {
-  border: 2px solid red;
-
   background-color: white;
   position: absolute;
   top: 50%;
@@ -313,46 +297,79 @@ select option:checked::selection {
   transform: translate(-50%, -50%);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
- 
-  width: 1100px;
-  height: 700px;
+  width: 70%;
+  height: 80%;
   gap: 15px;
 }
 
+.popupContent h2{
+  font-weight: normal;
+  letter-spacing: 5px;
+}
+
 .popupContent .div-1{
-  border: 2px solid blue;
-  height: 20%;
+  height: 15%;
+  display: flex;
+  border-bottom: 2px black solid;
+}
+
+.popupContainer .div-1 .pop-up-logo-box{
+  display: flex;
+  width: 15%;
+  justify-content: center;
+}
+
+.popupContainer .div-1 .pop-up-logo-box .spoonacular-logo{
+  width: 100%;
+  height: auto;
+  max-width: 100px;
+}
+
+.popupContainer .div-1 .nutrients-container{
+  width: 85%;
+}
+
+.popupContainer .div-1 .nutrients-container .nutrients-list{
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+  font-size: 1vw;
 }
 
 .popupContent .div-2{
-  border: 2px solid green;
-  height: 50%;
-  display: flex;
+  height: 65%;
   overflow: auto;
+  display: flex;
 }
 
 .popupContent .div-2 .ingredients-container{
   width: 30%;
   padding: 30px;
+  height: 100%;
+  border-right: 2px black solid;
 }
 
 .popupContent .div-2 .steps-container{
   width: 70%;
-  height: fit-content;
+  height: 100%;
   padding: 30px;
-  border-left: 2px solid black;
 }
 
 .popupContent .div-3{
-  border: 2px solid rgb(255, 251, 7);
-  height: 30%;
+  height: 20%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
 }
 
-.popupContent .div-3 .recipe-img{
-
+.popupContent .div-3 h2.recipe-title{
+  color: white !important;
+  font-size: 1.7vw;
+  align-self: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding-left: 5%;
 }
 
 .nutrients-container h2, .ingredients-container h2, .steps-container h2{
@@ -363,44 +380,6 @@ select option:checked::selection {
 .nutrients-container li, .ingredients-container li, .steps-container li {
   margin-bottom: 10px;
 }
-
-/* .nutrients-container{
-  width: 20%;
-}
-
-.ingredients-container{
-  width: 25%;
-}
-
-.steps-container{
-  width: 55%;
-}
-
-.nutrients-container, .ingredients-container, .steps-container{
-  padding: 20px 40px 40px;
-  border-radius: 20px;
-  overflow: auto;
-  height: 100%;
-}
-
-.nutrients-container h2, .ingredients-container h2, .steps-container h2{
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.nutrients-container ol, .ingredients-container ul, .steps-container ol{
-  border-radius: 20px;
-  padding: 20px;
-}
-
-.steps-container ol {
-  list-style-type: decimal; 
-}
-
-.nutrients-container li, .ingredients-container li, .steps-container li {
-  margin-bottom: 10px;
-} */
-
 
 @media screen and (max-width: 1500px){
   /* Filters */
@@ -412,6 +391,11 @@ select option:checked::selection {
   select {
     font-size: 1vw;
   }
+
+    /* Popup container */
+    .popupContainer .div-1 .nutrients-container .nutrients-list{
+      font-size: 1.5vw;
+    }
 }
 
 @media screen and (max-width: 900px){
@@ -454,7 +438,9 @@ select option:checked::selection {
   select {
     font-size: 1vw;
   }
-  
 
-
+  /* Popup container */
+  .popupContainer .div-1 .nutrients-container .nutrients-list{
+    font-size: 1.5vw;
+  }
 }

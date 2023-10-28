@@ -1,7 +1,7 @@
 // API KEYS:
 // 71b69fc73b0248edb265c0ec9bcc7ad3 (Used up for 10/27/2023)
-// caf48c542cf34b56bc4c3926b208a94b (Used up for 10/26/2023)
-// cea59ef24546496894acd5f36606d04d (Used up for 10/26/2023)
+// caf48c542cf34b56bc4c3926b208a94b (Used up for 10/28/2023)
+// cea59ef24546496894acd5f36606d04d (Used up for 10/28/2023)
 // d11c4d40523f46a5a767e57254b8fe2d (Used up for 10/26/2023)
 // 118e02b187ec440387921fa4646524e7 (Used up for 10/26/2023)
 // 1763e0afde7a465f9a24dc4cef3fdf37 (Used up for 10/26/2023)
@@ -10,7 +10,7 @@
 // ef33a96b0f7e4e488bb63498044aac80 (Used up for 10/27/2023)
 // 3af2c1b768344eb09015826b34842396 (Used up for 10/27/2023)
 
-const apiKey = 'caf48c542cf34b56bc4c3926b208a94b'; 
+const apiKey = '71b69fc73b0248edb265c0ec9bcc7ad3'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
@@ -191,34 +191,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     const nutrientsHTML = generateNutrientsHTML(nutritionData.nutrients);
                     const ingredientsHTML = generateIngredientsHTML(recipeInfo);
                     const stepsHTML = generateStepsHTML(recipeInfo);
-                    // ${nutrientsHTML}
-                    // ${ingredientsHTML}
-                    // ${stepsHTML}
                     popupContent.innerHTML = `
                         <div class="div-1">
-                            <div class="pop-up-logo-box"></div>
-                           
+                            <div class="pop-up-logo-box">
+                                <img class= "spoonacular-logo" src="./images/spoonacular.png" alt="https://spoonacular.com/">
+                            </div>
+                            ${nutrientsHTML}
                         </div>
                         <div class="div-2">
                             ${ingredientsHTML}
                             ${stepsHTML}
                         </div>
                         <div class="div-3">
-
-                            
+                            <h2 class ="recipe-title">${recipe.title}</h2>
                         </div>
                     `; 
-                    // <img class = "recipe-img" src="${recipe.image}" alt="${recipe.title}">
                         popupContainer.style.display = 'block';
                         const imageContainer = document.querySelector('.div-3');
-                        imageContainer.style.backgroundImage = `url(${recipe.image})`;
+                        imageContainer.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 70, 0, 0.5), rgba(0, 70, 0, 0.5)), url(${recipe.image})`;
                 } catch (error) {
                     console.error('Error fetching or displaying nutrition data:', error);
                 }
             });
-
-            
-
 
             const recipeImage = document.createElement('img');
             recipeImage.src = recipe.image;
@@ -230,15 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const darkgreenHeart = document.createElement('img');
             darkgreenHeart.src = './images/darkgreen-heart.png';
             darkgreenHeart.alt = 'https://clipart-library.com/free/green-heart-transparent-background.html';
-            const lightgreenHeart = document.createElement('div');
-            lightgreenHeart.classList.add('lightgreen-heart');
-            const lightgreenHeartImg = document.createElement('img');
-            lightgreenHeartImg.src = './images/lightgreen-heart.png';
-            lightgreenHeartImg.alt = 'https://clipart-library.com/free/green-heart-transparent-background.html';
-    
-            lightgreenHeart.appendChild(lightgreenHeartImg);
             heart.appendChild(darkgreenHeart);
-            heart.appendChild(lightgreenHeart);
 
             const titleContainer = document.createElement('div');
             titleContainer.classList.add('recipe-title-container');
@@ -268,7 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
             recipeName.textContent = recipe.title;
 
             heartContainer.appendChild(heart);
-
             titleContainer.appendChild(heartContainer);
             titleContainer.appendChild(recipeTitle);
 
@@ -296,15 +281,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function generateNutrientsHTML(nutritionData) {
+
+        const nutrientShortcuts = {
+            "Calories": "CAL",
+            "Fat": "FAT",
+            "Carbohydrates": "CARBS",
+            "Sugar": "SUGAR",
+            "Cholesterol": "CHOL",
+            "Protein": "PROTEIN",
+          };
+
+        const desiredNutrients = Object.keys(nutrientShortcuts);
+      
+        const filteredNutritionData = nutritionData.filter(nutrient => desiredNutrients.includes(nutrient.name));
+      
         const nutrientsHTML = `
-            <div class="nutrients-container">
-                <h2>Nutrients</h2>
-                <ol>
-                    ${nutritionData.map(nutrient => `<li>${nutrient.name}: ${nutrient.amount} ${nutrient.unit}</li>`).join('')}
-                </ol>
+        <div class="nutrients-container">
+            <h2>Nutrients</h2>
+            <div class="nutrients-list">
+                ${filteredNutritionData.map(nutrient => `
+                <div class="nutrient-item">
+                    <div class="nutrient-shortcut">${nutrientShortcuts[nutrient.name]}</div>
+                    <div class="nutrient-amount">${nutrient.amount} ${nutrient.unit}</div>
+                </div>
+                `).join('')}
             </div>
+        </div>
         `;
-    
+      
         return nutrientsHTML;
     }
     
