@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="../other-styles/recipes.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="./script.js"></script>
+    <script src="../other-scripts/recipes.js"></script>
     <title>Document</title>
 </head>
 <body>
     <header>
-        <img class="logo" src="images/logo.png" alt="logo">
+        <img class="logo" src="../images/logo.png" alt="logo">
         <div class="logo-title">
             <span class="green">Nom</span> Nom
         </div>
@@ -20,7 +20,7 @@
         </div>
         <nav class="navbar">
             <ul class="navlinks">
-                <li>Home</li>
+                <li><a href = "../index.html">Home</a></li>
                 <li class="green">Recipes</li>
                 <li>Meals</li>
                 <li>About</li>
@@ -130,8 +130,47 @@
         </div>
         <div class="popupNutrition"></div>
     </main>
-    <footer>
-        <h1>Jansen sexy</h1>
+    <footer class="footer">
+        <div class="container-footer">
+            <h3 class="footer-title">CONTACT US</h3>
+
+            <div class="content-footer">
+                <div class="media-info"> 
+                    <li><a href="#" class="icon"><i class="fa fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#" class="icon"><i class="fa fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#" class="icon"><i class="fa fa-google-plus"></i> Google</a></li>
+                    <li><a href="#" class="icon"><i class="fa fa-youtube"></i> Youtube</a></li>
+                    <li><a href="#" class="icon"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+                </div>
+                
+                <div class="contact-form">
+                    <h1>Contact Form</h1>
+                    <div class="form-group">
+                        <label for="">Your Name</label>
+                        <input type="text" id="name" placeholder="user name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Your Email</label>
+                        <input type="text" id="email" placeholder="gmail@gmail.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Subject</label>
+                        <input type="text" id="subject" placeholder="Subject">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Message</label>
+                        <textarea id="message" placeholder="Message"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button onclick="sendMessage(); reset(); return false">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

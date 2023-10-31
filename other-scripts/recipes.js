@@ -10,7 +10,7 @@
 // ef33a96b0f7e4e488bb63498044aac80 (Used up for 10/27/2023)
 // 3af2c1b768344eb09015826b34842396 (Used up for 10/27/2023)
 
-const apiKey = '71b69fc73b0248edb265c0ec9bcc7ad3'; 
+const apiKey = 'c083735428e14965adfef8724ac6c9c6'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             spoonacularContainer.classList.add('spoonacular');
             const spoonacularLogo = document.createElement('img');
             spoonacularLogo.classList.add('spoonacular-logo');
-            spoonacularLogo.src = './images/spoonacular.png';
+            spoonacularLogo.src = '../images/spoonacular.png';
             spoonacularLogo.alt = 'https://spoonacular.com/';
             const spoonacularName = document.createElement('p');
             spoonacularName.classList.add('spoonacular-name');
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     popupContent.innerHTML = `
                         <div class="div-1">
                             <div class="pop-up-logo-box">
-                                <img class= "spoonacular-logo" src="./images/spoonacular.png" alt="https://spoonacular.com/">
+                                <img class= "spoonacular-logo" src="../images/spoonacular.png" alt="https://spoonacular.com/">
                             </div>
                             ${nutrientsHTML}
                         </div>
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const heart = document.createElement('div');
             heart.classList.add('heart', 'darkgreen-heart');
             const darkgreenHeart = document.createElement('img');
-            darkgreenHeart.src = './images/darkgreen-heart.png';
+            darkgreenHeart.src = '../images/darkgreen-heart.png';
             darkgreenHeart.alt = 'https://clipart-library.com/free/green-heart-transparent-background.html';
             heart.appendChild(darkgreenHeart);
 

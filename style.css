@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    overflow: hidden;
+}
+
+/*
+NAV BAR
+*/
+#navbar {
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #11270B;
+    margin-bottom: 2%;
+    position: fixed;
+    z-index: 1000;
+    font-family: Roboto;
+}
+
+#navbar .logo {
+    align-self: center;
+    height: 12vmin;
+    margin: 1.5% 0 0;
+    padding-right: 0.5%;  
+}
+
+#navbar .green {
+    color: #66BB69;
+}
+
+.links {
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+  
+.navlinks {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    color: #fff;
+}
+
+.navlinks > li {
+    list-style: none;
+    font-size: 1.1vw;;
+    font-weight: bold;
+}
+  
+.navlinks > li:hover {
+    color: #FFED00;
+    text-decoration: underline;
+    cursor: pointer;
+}
+  
+
+/*
+HEADER
+*/
+
+#header {
+    width: 100%;
+    height: 100vh;
+    margin-top: 2%;
+    font-family: Roboto;
+    background-color: #11270B;
+    display: flex;
+}
+
+/*
+HEADER LEFT SIDE
+*/
+#header-left-side {
+    width: 60%;
+    margin-left: 7rem;
+    background-color: #11270B;
+}
+
+#header-left-side div {
+    display: flex;
+    column-gap: 10px;
+    padding-right: 10vh;
+}
+
+.website-name {
+    margin-top: 20%;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 6rem;
+    text-shadow: 0px 10px black;
+}
+
+.website-name-1st-h1 {
+    color: #66BB69;
+}
+
+.website-name-2nd-h1 {
+    color: white;
+}
+
+hr {
+    width: 20%;
+    height: 5px;
+    background-color: white;
+    border: 0;
+    border-top: 1px solid white;
+    margin-top: 5%;
+    margin-left: 25%;
+    padding-left: 20rem;
+}
+
+.website-meaning {
+    margin-top: 7%;
+    font-size: 2rem;
+    font-weight: bold;
+    justify-content: center;
+    text-shadow: 0px 2px black;
+}
+
+.website-meaning-1st-p {
+    color: #66BB69;
+}
+
+.website-meaning-2nd-p {
+    color: white;
+}
+
+.view-recipes-btn {
+    position: relative;
+    margin-top: 5%;
+    margin-left: 34%;
+    background-color: #FFED00; 
+    border-radius: 24px;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0px 2px 3px black;
+}
+
+.view-recipes-btn a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.view-recipes-btn:hover {
+    color: #fff;
+    background-color: darkred;
+}
+
+.socials a {
+    margin-top: 10%;
+    padding-right: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.socials a i {
+    font-size: 1.5rem;
+    transition: color .4s ease;
+}
+
+.socials a:hover i {
+    color: #66BB69;
+}
+
+/*
+HEADER RIGHT SIDE
+*/
+#header-right-side {
+    width: 40%;
+    overflow: hidden;
+    background-color: #11270B;
+}
+
+.plate {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin-top: 35%;
+    -webkit-transition: -webkit-transform 1s;
+}
+
+.plate:hover {
+    -webkit-transform: rotate(270deg) translateZ(0);
+}
+
+/*
+ABOUT
+*/
+#about {
+    width: 100%;
+    height: 100vh;
+    font-family: Roboto;
+    background-color: #EBEBEB;
+    display: flex;
+}
+
+/*
+LEFT SIDE
+*/
+.left-side {
+    margin-left: 5%;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    background-color: #EBEBEB;
+}
+
+.left-side img {
+    margin-top: 45%;
+    margin-left: 40%;
+    width: 69%;
+    height: 70.5vh;
+}
+
+.second-img-container img {
+    margin-top: 45%;
+    margin-left: 10%;
+    margin-bottom: -45%;
+    width: 65%;
+    height: 35vh;
+}
+
+/*
+RIGHT SIDE
+*/
+.right-side {
+    width: 50%;
+    height: 100vh;
+    background-color: #EBEBEB;
+}
+
+.right-side h1 {
+    margin-top: 25%;
+    color: #3C5A14;
+    font-size: 5em;
+    text-shadow: 0px 5px black;
+    text-align: center;
+}
+
+.first-p {
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: black;
+    font-size: 1em;
+    text-align: left;
+}
+
+.second-p {
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
+    color: black;
+    font-size: 1em;
+    text-align: left;
+}
+
+.more-info {
+    margin-left: 42%;
+    margin-right: 20%;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    color: #fff;
+    background-color: #3C5A14;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 1.4em;
+    box-shadow: 0px 2px 3px black;
+}
+
+.more-info:hover {
+    color: #fff;
+    background-color: darkred;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 1.4em;
+    box-shadow: 0px 2px 3px black;
+}
+
+/*
+MEAL-PLAN
+*/
+.meal-plan {
+    width: 100%;
+    height: 100vh;
+    font-family: Roboto;
+    background-color: #11270B;
+    border-bottom: 10px black;
+}
+
+.container-meal-plan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.meal-plan-title {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 2%;
+    color: #66BB69;
+    font-size: 5em;
+    text-shadow: 0px 5px black;
+    text-align: left;
+}
+
+.content {
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .image {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.content .image img {
+    z-index: 111;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.content .text-box {
+    color: #fff;
+    z-index: 222;
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transform: translate(-80px, 50px);
+}
+
+.content .text-box h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.content .text-box p {
+    margin-bottom: 25px;
+}
+
+.create-plan {
+    margin-left: 25%;
+    padding: 10px;
+    color: black;
+    background-color: #FFED00;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 1em;
+    box-shadow: 0px 2px 3px black;
+    text-align: center;
+}
+
+.create-plan:hover {
+    color: #fff;
+    background-color: darkred;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 1em;
+    box-shadow: 0px 2px 3px black;
+}
+
+/*
+FOOTER
+*/
+.footer {
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 100px;
+    font-family: Roboto;
+    background: linear-gradient(360deg, #3C5A14, #EBEBEB);
+}
+
+.container-footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-title {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #3C5A14;
+    font-size: 5em;
+    text-shadow: 0px 5px black;
+    text-align: center;
+}
+
+.content-footer {
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-info {
+    width: 400px;
+    margin-left: 50px;
+}
+
+.media-info li {
+    list-style: none;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.media-info li:hover {
+    text-decoration: underline;
+}
+
+.media-info li a {
+    color: #11270B;
+    text-decoration: none;
+}
+
+.media-info li a:hover {
+    color: #FFED00;
+    text-decoration: underline;
+}
+
+.media-info li:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+.contact-form {
+    background: #3C5A14;
+    padding: 25px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.contact-form h1 {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 40px;
+    color: #66BB69;
+    text-shadow: 0px 2px black;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.contact-form .form-group input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 17px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.contact-form .form-group button {
+    display: block;
+    margin: auto;
+    background: #11270B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 17px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.contact-form .form-group button:hover {
+    color: black;
+    background: #FFED00;
+}
+
+a {
+    color: inherit; 
+    text-decoration: none; 
+}

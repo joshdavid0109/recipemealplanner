@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/Nom-Nom-Logoo.png">
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <title>Nom Nom</title>
+</head>
+<body>
+    <main>
+        <!--Nab-Bar-->
+        <nav id="navbar">
+            <img class="logo" src="images/Nom-Nom-Logoo.png" alt="logo">
+        
+            <div class="links">
+                <ul class="navlinks">
+                    <li class="green">Home</li>
+                    <li><a href=/other-pages/recipes.html>Recipes</a></li>
+                    <li>Meals</li>
+                    <li>About</li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--Header Top-->
+        <section id="header">
+        
+            <div id="header-left-side">
+                <div class="website-name">
+                    <h1 class="website-name-1st-h1">Nom</h1>
+                    <h1 class="website-name-2nd-h1">Nom</h1>
+                </div>
+        
+                <hr>
+        
+                <div class="website-meaning">
+                    <p class="website-meaning-1st-p">Nutrition on Mind.</p>
+                    <p class="website-meaning-2nd-p">Nutrition on Motion</p>
+                </div>
+        
+                <button class="view-recipes-btn">
+                    <a href=/other-pages/recipes.html>VIEW RECIPES</a> 
+                </button>  
+                
+                <div class="socials">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+    
+            <div id="header-right-side">
+                <div>
+                    <img class="plate" src="images/FOOD-removebg-preview.png" alt="header-image">
+                </div>
+            </div>
+        </section>
+    
+        <!--Header Bottom-->        
+        <section id="about">
+            <div class="left-side">
+                <div>
+                    <img src="images/food-1.jpg" alt="food-1">
+                </div>
+                
+                <div class="second-img-container">
+                    <img src="images/food-2.jpg" alt="food-2">
+                    <img src="images/food-3.jpg" alt="food-3">
+                </div>
+            </div>
+
+            <div class="right-side">
+                <h1>ABOUT US</h1>
+                
+                <p class="first-p">
+                    Welcome to Nom Nom, your trusted partner for healthier meal choices.
+                    We provide a Meal-Calorie Generator, Nutritional Insights, and a unique categorization 
+                    feature to help you build a healthy relationship with your food. Our personalized platform 
+                    offers accurate calorie information, detailed nutritional breakdowns, and a supportive community. 
+                    Join us today for a journey towards better health, one meal at a time
+                </p>
+
+                <p class="second-p">
+                    We envision a world where everyone has access to personalized nutritional information and 
+                    can create a positive, sustainable relationship with their food. We believe that understanding 
+                    the nutritional content of your meals is the first step toward achieving your health and wellness goals.
+                </p>
+
+                <a class="more-info" href="#">More Info</a>
+            </div>
+        </section>
+
+        <!--Meal-Plan-->
+        <section class="meal-plan">
+            <div class="container-meal-plan">
+    
+                <h3 class="meal-plan-title">MEAL PLAN</h3>
+    
+                <div class="content">
+    
+                    <div class="image">
+                        <img id="img-01" src="images/preparing.webp" alt="image_01" onmouseover="changeImage(1, this)"  onmouseout="changeImage(2, this)">
+                    </div>
+    
+                    <div class="text-box">
+                        <h3>Create Plan</h3>
+                        <p>
+                            Meal planning is a valuable tool for tracking calories, 
+                            helping achieve dietary and weight management goals, promoting 
+                            healthier eating, and making long-term dietary changes sustainable.
+                        </p>
+
+                        
+                        <a class="create-plan" href="#">CREATE MEAL PLAN</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Footer-->
+        <footer class="footer">
+            <div class="container-footer">
+                <h3 class="footer-title">CONTACT US</h3>
+    
+                <div class="content-footer">
+                    <div class="media-info"> 
+                        <li><a href="#" class="icon"><i class="fa fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#" class="icon"><i class="fa fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#" class="icon"><i class="fa fa-google-plus"></i> Google</a></li>
+                        <li><a href="#" class="icon"><i class="fa fa-youtube"></i> Youtube</a></li>
+                        <li><a href="#" class="icon"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h1>Contact Form</h1>
+                        <div class="form-group">
+                            <label for="">Your Name</label>
+                            <input type="text" id="name" placeholder="user name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Your Email</label>
+                            <input type="text" id="email" placeholder="gmail@gmail.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Subject</label>
+                            <input type="text" id="subject" placeholder="Subject">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Message</label>
+                            <textarea id="message" placeholder="Message"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button onclick="sendMessage(); reset(); return false">Send Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    
+    <script class="headline">
+        ScrollReveal({
+            reset: true,
+            distance: '60px',
+            duration: 2500,
+            delay: 100
+        });
+
+        ScrollReveal().reveal('#header-left-side, .website-meaning', { delay: 300, origin: 'left'});
+        ScrollReveal().reveal('.view-recipes-btn', { delay: 800, origin: 'bottom'});
+        ScrollReveal().reveal('.socials', { delay: 200, origin: 'left', interval: 200});
+
+        ScrollReveal().reveal('.left-side img', { delay: 200, origin: 'left', interval: 100});
+        ScrollReveal().reveal('.right-side h1', { delay: 200, origin: 'aboive'});
+        ScrollReveal().reveal('.first-p, .second-p', { delay: 400, origin: 'right'});
+        ScrollReveal().reveal('.more-info', { delay: 800, origin: 'bottom'});
+
+        ScrollReveal().reveal('.meal-plan-title', { delay: 200, origin: 'left', interval: 200});
+        ScrollReveal().reveal('.text-box', { delay: 200, origin: 'right', interval: 200});
+        ScrollReveal().reveal('.text-box .create-plan', { delay: 800, origin: 'bottom'});
+
+        ScrollReveal().reveal('.footer-title, .image', { delay: 200, origin: 'bottom'});
+        ScrollReveal().reveal('.meal-plan-title, .media-info li', { delay: 200, origin: 'left', interval: 200});
+        ScrollReveal().reveal('.contact-form', { delay: 200, origin: 'bottom'});
+
+        function changeImage(x, image) {
+            if(x==1) {
+                image.src = 'images/food-2.jpg'
+            } 
+            
+            if (x==2) {
+                image.src = 'images/preparing.webp'
+            }
+        }
+
+        function sendMessage() {
+            (function() {
+                emailjs.init("u-aypki9Jem1qNpXl");
+            })();
+
+            var serviceID = "service_rnbbv2c";
+            var templateID = "template_amxwovm";
+
+            var params = {
+                sendername: document.querySelector("#name").value,
+                senderemail: document.querySelector("#email").value,
+                subject: document.querySelector("#subject").value,
+                message: document.querySelector("#message").value,
+            };
+
+            emailjs.send(serviceID, templateID, params)
+            .then( res => {
+                alert('Thank you, ' + params['sendername'] + '! Your message has been sent.')
+            })
+            .catch();
+        }
+
+    </script>
+</body>
+</html>
