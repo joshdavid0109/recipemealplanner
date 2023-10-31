@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img class="logo" src="images/logo.png" alt="logo">
+        <div class="logo-title">
+            <span class="green">Nom</span> Nom
+        </div>
+        <div class="motto">
+            <span class="green">Nutrition on Mind,</span> Nutrition on Motion
+        </div>
+        <nav class="navbar">
+            <ul class="navlinks">
+                <li><a href="/index.html">Home</a></li>
+                <li class="green">Recipes</li>
+                <li> <a href="/otherPages-bads/meals-page/meal-page.html"> Meals</a></li>
+                <li><a href="/otherPages-bads/about-page/about.html">About</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="searchInputWrapper">
+                <input class="searchInput" type="text" placeholder='Search for a Recipe...'>
+                <i class="searchInputIcon fa fa-search"></i>
+            </div>
+            <div class="autocompleteResults"></div>
+        </div>
+        <div class="filter-container">
+            <label for="cuisineFilter">Cuisine:</label>
+            <select id="cuisineFilter">
+                <option value="Any">Any</option>
+                <option value="african">African</option>
+                <option value="american">American</option>
+                <option value="british">British</option>
+                <option value="cajun">Cajun</option>
+                <option value="caribbean">Caribbean</option>
+                <option value="chinese">Chinese</option>
+                <option value="eastern european">Eastern European</option>
+                <option value="french">French</option>
+                <option value="german">German</option>
+                <option value="greek">Greek</option>
+                <option value="indian">Indian</option>
+                <option value="japanese">Japanese</option>
+                <option value="jewish">Jewish</option>
+                <option value="korean">Korean</option>
+                <option value="latin american">Latin American</option>
+                <option value="mexican">Mexican</option>
+                <option value="middle eastern">Middle Eastern</option>
+                <option value="nordic">Nordic</option>
+                <option value="southern">Southern</option>
+                <option value="spanish">Spanish</option>
+                <option value="thai">Thai</option>
+                <option value="vietnamese">Vietnamese</option>
+            </select>
+
+            <label for="dietFilter">Diet:</label>
+            <select id="dietFilter">
+                <option value="Any">Any</option>
+                <option value="ketogenic">Ketogenic</option>
+                <option value="paleo">Paleo</option>
+                <option value="primal">Primal</option>
+                <option value="vegan">Vegan</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="whole 30">Whole 30</option>
+            </select>
+        
+            <label for="intoleranceFilter">Intolerances:</label>
+            <select id="intoleranceFilter">
+                <option value="None">None</option>
+                <option value="dairy Free">Dairy Free</option>
+                <option value="egg Free">Egg Free</option>
+                <option value="gluten Free">Gluten Free</option>
+                <option value="grain Free">Grain Free</option>
+                <option value="peanut Free">Peanut Free</option>
+                <option value="seafood Free">Seafood Free</option>
+                <option value="sesame Free">Sesame Free</option>
+                <option value="shellfish Free">Shellfish Free</option>
+                <option value="soy Free">Soy Free</option>
+                <option value="sulfite Free">Sulfite Free</option>
+                <option value="tree Nut Free">Tree Nut Free</option>
+                <option value="wheat Free">Wheat Free</option>
+            </select>
+
+            <label for="typeFilter">Type:</label>
+            <select id="typeFilter">
+                <option value="Any">Any</option>
+                <option value="Appetizer/Snack">Appetizer/Snack</option>
+                <option value="Batter">Batter</option>
+                <option value="Beverage">Beverage</option>
+                <option value="Bread">Bread</option>
+                <option value="Breakfast/Brunch">Breakfast/Brunch</option>
+                <option value="Crust">Crust</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Drink/Cocktail">Drink/Cocktail</option>
+                <option value="Frosting/Icing">Frosting/Icing</option>
+                <option value="Main Course">Main Course</option>
+                <option value="Salad">Salad</option>
+                <option value="Sauce">Sauce</option>
+                <option value="Spread">Spread</option>
+                <option value="Seasoning/Marinade">Seasoning/Marinade</option>
+                <option value="Side Dish">Side Dish</option>
+                <option value="Soup">Soup</option>
+            </select>
+            
+        </div>
+        <div class="recipeResults"></div>
+        <div class="noResultsMessage"></div>
+        <div id="popupContainer" class="popupContainer">
+            <div class="popupContent">
+                <div class="popupColumn" id="nutrientsSection">
+                    <!-- Nutrients will be displayed here -->
+                </div>
+                <div class="popupColumn" id="ingredientsSection">
+                    <!-- Ingredients will be displayed here -->
+                </div>
+                <div class="popupColumn" id="stepsSection">
+                    <!-- Steps will be displayed here -->
+                </div>
+            </div>
+        </div>
+        <div class="popupNutrition"></div>
+    </main>
+    <!--Footer-->
+    <footer class="footer">
+        <div class="container-footer">
+            <h3 class="footer-title">CONTACT US</h3>
+
+            <div class="content-footer">
+                <div class="media-info"> 
+                    <li><a href="#" class="icon"><i class="fa fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#" class="icon"><i class="fa fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#" class="icon"><i class="fa fa-google-plus"></i> Google</a></li>
+                    <li><a href="#" class="icon"><i class="fa fa-youtube"></i> Youtube</a></li>
+                    <li><a href="#" class="icon"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+                </div>
+                
+                <div class="contact-form">
+                    <h6>Contact Form</h6>
+                    <div class="form-group">
+                        <label for="">Your Name</label>
+                        <input type="text" id="name" placeholder="user name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Your Email</label>
+                        <input type="text" id="email" placeholder="gmail@gmail.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Subject</label>
+                        <input type="text" id="subject" placeholder="Subject">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Message</label>
+                        <textarea id="message" placeholder="Message"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button onclick="sendMessage(); reset(); return false">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

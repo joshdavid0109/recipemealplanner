@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,500;1,900&display=swap');
+
+*{
+      font-family: Roboto;
+}
+body {
+    margin: 0;
+    font-size: 20px;
+    background-color: #fbfbfb;
+    font-family: "Raleway";
+    line-height: 1.4;
+    opacity: 1;
+    color: #3e3e40;
+    transition: 1s opacity;
+    letter-spacing: 0.5px;
+}
+a, a:focus, button, button:focus {
+    outline: none;
+}
+.main-sec {
+    padding-top: 60px;
+}
+
+#navbar .green {
+    color: #66BB69;
+}
+.title-head {
+    text-align: center;
+    color: #616061;
+    position: relative;
+    margin: 0px 0 2px;
+    padding-top: 1px;
+    font-size: 22px;
+}
+.title-head:before {
+    content: "";
+    width: 96px;
+    height: 2px;
+    background: #66BB69;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%, -43%);
+    z-index: -1;
+}
+.drag {
+    position: relative;
+    min-height: 300px;
+    margin: 40px;
+}
+.drag .wrapper {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #bbb;
+}
+.drag .wrapper ul {
+    width: 80%;
+    min-height: 100px;
+    padding: 18px;
+    list-style-type: none;
+    background-color: #66BB69;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.drag .wrapper ul li {
+    padding: 3% 2%;
+    background-color: #fff;
+    transition: 0.3s ease-out;
+    margin-bottom: 15px;
+    width: 90%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 3px;
+    cursor: move;
+    display: block;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.drag .wrapper ul li:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.drag .wrapper ul li p {
+    margin-bottom: 0;
+    font-size: 24px;
+}
+
+.drag .wrapper ul li:active {
+    background-color: white
+    ;
+    color: white;
+}
+
+.dropzone {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    
+}
+
+.meal-div {
+    background-color: #345e368c;
+    border-radius: 5px;
+}
+
+.meal-label {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 25px;
+    width: max-content;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+  }
+  
+  header .logo {
+    align-self: center;
+    height: 12vmin;
+    margin: 1.5% 0 0;
+    padding-right: 0.5%;
+  }
+  
+  header .logo-title{
+    font-size: 2.3vw;
+    text-align: center;
+    font-weight: bold;
+    padding: 0 0 0.5%
+  }
+  
+  header .motto{
+    font-size: 1.3vw;
+    font-weight: bold;
+  }
+  
+  header .green {
+    color: #66BB69;
+  }
+  
+  .navbar {
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .navlinks {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+  }
+  
+  .navlinks > li {
+    list-style: none;
+    font-size: 1.1vw;;
+    font-weight: bold;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .navlinks > li:hover {
+    color: green;
+    cursor: pointer;
+  }
+  
+.allergens-div {
+    margin-top: 20px;
+    flex-basis: 100%;
+}
+
+.filter-container {
+    text-align: center;
+    border: 2px solid #66BB69;
+    border-radius: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    margin: 30px 50px 30px;
+    padding: 20px 0 20px;
+    font-size: 1vw;
+    justify-content: center;
+    align-items: stretch;
+}
+
+select {
+    width: 100px;
+    text-align: center;
+}
+
+input, select {
+    border: 2px solid #66BB69;
+    border-radius: 20px;
+    text-align: center;
+}
+
+input:checked, select:checked {
+    background-color: #11270B;
+}
+
+.generate-button {
+    font-weight: bold;
+    border: 2px solid #0f0606;
+    background: #66BB69;
+    border-radius: 5px;
+    gap: 10px;
+    margin: 30px 50px 30px;
+    padding: 20px 20px 20px;
+    text-align: center;
+}
+
+.clear-button {
+    font-size: 12px;
+    margin-left: 20px;
+    font-style: italic;
+}
+
+.clear-button:hover {
+    cursor:pointer;
+    text-decoration: underline;
+}
+
+.generate-button:hover {
+    background-color: #548845;
+    border-color: #66BB69;
+   
+
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #a0a0a0;
+    color: white;
+    text-align: center;
+    padding: 13px;
+}
+
+.fa-refresh {
+    color: black;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size:24px;
+    cursor: pointer;
+}
+
+.fa-refresh:hover {
+    transform: rotate(90deg);
+    transition: transform 0.25s ease-in;
+}
+
+.filter-container p {
+    font-family: "Roboto", "sans-serif";
+    font-weight: bolder;
+}
+
+.allergens-div p {
+
+    color: red;
+    font-weight: 500;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.inside-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-input {
+    margin-top: 50px;
+    text-align: center;
+
+}
+
+.row {
+    color: black;
+    font-size: 12px;
+}
+
+.food-name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    margin-left: 15px;
+    font-size: 14px;
+    color: black;
+}
+
+.food-name-servings  {
+    font-family: 'Roboto';
+    margin-left: 20px;
+    font-size: 14px;
+    color: gray;
+}
+
+.nutrition {
+    font-family: 'Roboto';
+    margin-left: 20px;
+    font-weight: 1000;
+    font-size: 14px;
+    color: gray;
+}
+
+
+footer p {
+    margin: 0;
+}
+
+
+.mealplan {
+    background: #e8488e;
+}

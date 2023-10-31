@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>js boiz</title>
+</head>
+<body>
+
+  <header>
+    <img class="logo" src="/otherPages-bads/meals-page/Resources/Pictures/logo.png" alt="logo">
+    <div class="logo-title">
+        <span class="green">Nom</span> Nom
+    </div>
+    <div class="motto">
+        <span class="green">Nutrition on Mind,</span> Nutrition on Motion
+    </div>
+    <nav class="navbar">
+        <ul class="navlinks">
+            <li><a href="/index.html">Home</a></li>
+            <li> <a href="/otherPages-bads/recipes-page/recipes.html">  Recipes</a></li>
+            <li class="green"> Meals</a></li>
+            <li><a href="/otherPages-bads/about-page/about.html">About</a> </li>
+        </ul>
+    </nav>
+  </header>
+
+
+
+    <!-- <button type="button" onclick="createStudent(2222551, JD, BSCS, 2002)"></button> -->
+
+
+    <div class ="filter-container">
+        <p for="calorie">I want to eat      </p>
+        <input id="cals" type="number" step="100" name="calories" min="0">
+        <p>Calories in</p>
+
+
+
+        <select name="number" id="meals">
+            <option value="3meals"> 3 meals </option>
+            <option value="4meals"> 4 meals</option>
+            <option value="5meals"> 5 meals</option>
+            <option value="6meals"> 6 meals</option>
+        </select>
+
+        <p> Diet:</p>
+
+        <select id="dietFilter">
+            <option value="Any">Any</option>
+            <option value="Ketogenic">Ketogenic</option>
+            <option value="Paleo">Paleo</option>
+            <option value="Primal">Primal</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Whole 30">Whole 30</option>
+        </select>
+
+
+       <div class="allergens-div">
+        <p>Allergens or ingredients that must be excluded. (Press Enter to submit)</p>
+        <p>Ex. Shellfish, Olives, Dairy</p>
+        <input type="text" id="allergens-ingredients" name="allrg-ingrdts"> 
+        <label for="none" id="clear-button" class="clear-button">Clear</label>
+       </div>
+        
+    </div>
+
+    <div style="text-align: center;">
+    <button class="generate-button" id="one" type="button" onclick="generatemeal()">Generate Meal Plan</button>
+    </div>
+   
+    <main>
+    <section class="main-sec">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div>
+                <h2 class="title-head">MEAL PLAN 
+  
+                  <i id="refresh-table" class="fa fa-refresh" style="font-size:22px;"></i>  
+  
+                </h2>
+              </div>
+              <div class="drag">
+                <div id="wrapper" class="wrapper">
+                     
+                  <!-- <ul id="breakfast" class="dropzone">
+                      <div class="meal-div">
+                        <label class="meal-label">Breakfast </label>
+                      </div>
+                      <li id="li" draggable="true">
+                        <div class="inside-li">
+                          <div class="food-image">
+                            <img id="image-li" src="/Resources/Pictures/DSC07646.JPG" style="width: 100px;" alt="asdasdcsa">
+                          </div>
+                          <div id="food-name-serving" class="food-name-serving">
+                            <div class="row" >
+                              <div class="food-name" >food name</div>
+                            </div>
+                            <div class= "row">
+                              <div class="food-name-servings" >servings</div>
+                            </div>
+                            <div class="row"> 
+                            <div class="nutrition"> cals</div>
+                        </div>
+                            
+                          </div>  
+                          <div id="123"class="refresh-button" style="margin-left: auto;">
+                            <i id="refreshButton" class="fa fa-refresh" style="font-size:22px;" ></i>  
+
+                          </div>
+                        </div>
+                        
+
+                      </li>
+                    </ul>
+
+                    <ul id="lunch" class="dropzone">
+                      <div class="meal-div">
+                        <label class="meal-label">Breakfast </label>
+                      </div>
+                      <li draggable="true">
+                        <div class="inside-li">
+                          <div class="food-image">
+                            <img src="/Resources/Pictures/DSC07646.JPG" style="width: 100px;" alt="asdasdcsa">
+                          </div>
+                          <div class="food-name-serving">
+                            <div class="row" >
+                              <div id="food-name" class="food-name" >food name</div>
+                            </div>
+                            <div class= "row">
+                              <div id="food-name-servings" class="food-name-servings" >servings</div>
+                            </div>
+                            <div class="row"> 
+                            <div id="nutrition" class="nutrition"> cals</div>
+                        </div>
+                            
+                          </div>
+                          <div id="asdas" class="refresh-button" style="margin-left: auto;">
+                            <i id="refreshButton" class="fa fa-refresh" style="font-size:22px;" ></i>  
+
+                          </div>
+                        </div>
+                        
+
+                      </li>
+                      
+
+                       <li draggable="true">
+                        <div class="inside-li">
+                          <div class="food-image">
+                            <img src="/Resources/Pictures/DSC07646.JPG" style="width: 100px;" alt="asdasdcsa">
+                          </div>
+                          <div class="food-name-serving">
+                            <div class="row" >
+                              <div id="food-name" class="food-name" >food name</div>
+                            </div>
+                            <div class= "row">
+                              <div id="food-name-servings" class="food-name-servings" >servings</div>
+                            </div>
+                            <div class="row"> 
+                            <div id="nutrition" class="nutrition"> cals</div>
+                        </div>
+                            
+                          </div>
+                          <div id="asdas" class="refresh-button" style="margin-left: auto;">
+                            <i id="refreshButton" class="fa fa-refresh" style="font-size:22px;" ></i>  
+
+                          </div>
+                        </div>
+                        
+                        
+
+                      </li>
+                      
+                       <li draggable="true">
+                        <div class="inside-li">
+                          <div class="food-image">
+                            <img src="/Resources/Pictures/DSC07646.JPG" style="width: 100px;" alt="asdasdcsa">
+                          </div>
+                          <div class="food-name-serving">
+                            <div class="row" >
+                              <div id="food-name" class="food-name" >food name</div>
+                            </div>
+                            <div class= "row">
+                              <div id="food-name-servings" class="food-name-servings" >servings</div>
+                            </div>
+                            <div class="row"> 
+                            <div id="nutrition" class="nutrition"> cals</div>
+                        </div>
+                            
+                          </div>
+                          <div id="asdas" class="refresh-button" style="margin-left: auto;">
+                            <i id="refreshButton" class="fa fa-refresh" style="font-size:22px;" ></i>  
+
+                          </div>
+                        </div>
+                        
+                        
+
+                      </li>
+                      
+                      <li draggable="true">
+                        <div class="inside-li">
+                          <div class="food-image">
+                            <img src="/Resources/Pictures/DSC07646.JPG" style="width: 100px;" alt="asdasdcsa">
+                          </div>
+                          <div class="food-name-serving">
+                            <div class="row" >
+                              <div id="food-name" class="food-name" >food name</div>
+                            </div>
+                            <div class= "row">
+                              <div id="food-name-servings" class="food-name-servings" >servings</div>
+                            </div>
+                            <div class="row"> 
+                            <div id="nutrition" class="nutrition"> cals</div>
+                        </div>
+                            
+                          </div>
+                          <div id="asdas" class="refresh-button" style="margin-left: auto;">
+                            <i id="refreshButton" class="fa fa-refresh" style="font-size:22px;" ></i>  
+
+                          </div>
+                        </div>
+                        
+                        
+
+                      </li>
+
+                      
+                      
+                      
+                    </ul>  -->
+
+
+
+                    <div style="clear:both">
+                    </div>
+                 
+                  
+                  </div>
+                 
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+      </section>
+      
+      
+
+  </main>
+   <!--Footer-->
+   <footer class="footer">
+    <div class="container-footer">
+        <h3 class="footer-title">CONTACT US</h3>
+
+        <div class="content-footer">
+            <div class="media-info"> 
+                <li><a href="#" class="icon"><i class="fa fa-facebook"></i> Facebook</a></li>
+                <li><a href="#" class="icon"><i class="fa fa-instagram"></i> Instagram</a></li>
+                <li><a href="#" class="icon"><i class="fa fa-google-plus"></i> Google</a></li>
+                <li><a href="#" class="icon"><i class="fa fa-youtube"></i> Youtube</a></li>
+                <li><a href="#" class="icon"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+            </div>
+            
+            <div class="contact-form">
+                <h6>Contact Form</h6>
+                <div class="form-group">
+                    <label for="">Your Name</label>
+                    <input type="text" id="name" placeholder="user name">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Your Email</label>
+                    <input type="text" id="email" placeholder="gmail@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Subject</label>
+                    <input type="text" id="subject" placeholder="Subject">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Message</label>
+                    <textarea id="message" placeholder="Message"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button onclick="sendMessage(); reset(); return false">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="/otherPages-bads/meals-page/index.js"></script>
+</body>
+</html>

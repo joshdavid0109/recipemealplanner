@@ -1,0 +1,644 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*{
+  font-family: Roboto;
+  margin: 0%;
+  padding: 0%;
+}
+
+li {
+  list-style: none;
+}
+
+/* Header */  
+header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+
+header .logo {
+  align-self: center;
+  height: 12vmin;
+  margin: 1.5% 0 0;
+  padding-right: 0.5%;
+}
+
+header .logo-title{
+  font-size: 2.3vw;
+  text-align: center;
+  font-weight: bold;
+  padding: 0 0 0.5%
+}
+
+header .motto{
+  font-size: 1.3vw;
+  font-weight: bold;
+}
+
+header .green {
+  color: #66BB69;
+}
+
+.navbar {
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.navlinks {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.navlinks > li {
+  list-style: none;
+  font-size: 1.1vw;;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.navlinks > li:hover {
+  color: green;
+  cursor: pointer;
+}
+
+/*Main*/ 
+.container {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(images/test.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+  
+.heading {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+/* Search field */
+.searchInputWrapper {
+  position: relative;
+}
+  
+.searchInput {
+  width: 35rem;
+  height: 2.5rem;
+  padding: 0 1rem; 
+  border-radius: 2rem;
+  border: 2px solid #66BB69;
+  transition: transform 0.1s ease-in-out;
+  background-color: whitesmoke;
+  font-size: 1vw;
+}
+  
+.searchInput:focus {
+  outline: none;
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+}
+  
+.searchInputIcon {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+  color: #a1a1a1;
+  transition: all 0.1s ease-in-out;
+}
+  
+.container:focus-within > 
+.searchInputWrapper > .searchInputIcon {
+  right: 0.2rem;
+}
+
+/* Autocomplete search input */
+.autocomplete-suggestion{
+  background-color: whitesmoke;
+  padding: 5px 20px 5px;
+  width: 350px;
+}
+
+.autocomplete-suggestion:hover{
+  cursor: pointer;
+}
+
+/* Filters*/
+.filter-container {
+  border: 2px solid #66BB69;
+  border-radius: 20px;
+  display: flex;
+  gap: 50px;
+  margin: 3% 10% 3%;
+  padding: 2% 0 2%;
+  font-size: 1vw;
+  justify-content: center;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 5px;
+  align-self: center;
+}
+
+select {
+  padding: 8px;
+  border: 2px solid#66BB69;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 14px;
+  outline: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+select:focus {
+  background-color: #66BB69;
+  color: white;
+  outline: none;
+}
+
+select option:checked {
+  background-color: green;
+  color: #fff;
+}
+
+select option:checked::selection {
+  background-color: green; 
+  color: #fff;
+}
+
+/* No results */
+.noResultsMessage{
+  text-align: center;
+  padding: 100px;
+  font-size: 30px;
+}
+
+/* Recipe results */
+.recipeResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.recipeResults .recipeCard {
+  width: 300px;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  display: flex; 
+  flex-direction: column; 
+  text-align: center; 
+}
+
+.recipeResults .recipeCard .spoonacular{
+  display: flex;
+  justify-content: flex-start;
+  text-align:start;
+}
+
+.recipeResults .recipeCard .spoonacular-logo{
+  width: 12%;
+  align-self: center;
+  padding: 5% 5% 5%;
+}
+
+.recipeResults .recipeCard .spoonacular-name{
+  font-size: 1.1vw;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+}
+
+.recipeResults .recipeCard img {
+  width: 100%;
+  height: auto;
+}
+
+.recipeResults .recipeCard .recipe-title-container{
+  display: flex;
+  align-self: center;
+  margin: 5% 5% 5%;
+}
+
+.recipeResults .recipeCard .heart-container {
+  width: 10%;
+  position: relative;
+  height: auto;
+}
+
+.recipeCard .recipe-title {
+  text-align: center;
+  width: 100%;
+  font-size: 1vw;
+  font-weight: bold;
+  padding: 0 1% 0;
+  align-self: center;
+}
+
+.recipeCard .nutritionInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.5vw;
+}
+
+.recipeCard:hover{
+  cursor: pointer;
+}
+
+/* Chart */
+.nutrition-info{
+  height: 80%;
+  color: white;
+}
+
+.recipeCard:hover .nutritionInfo {
+  display: flex;
+}
+
+.recipeCard img:hover{
+  cursor: pointer;
+}
+
+/* Popup */
+.popupContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); 
+  z-index: 1; 
+}
+
+.popupContent {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 70%;
+  height: 80%;
+  gap: 15px;
+}
+
+.popupContent h2{
+  font-weight: normal;
+  letter-spacing: 5px;
+}
+
+.popupContent .div-1{
+  height: 15%;
+  display: flex;
+  border-bottom: 2px black solid;
+}
+
+.popupContainer .div-1 .pop-up-logo-box{
+  display: flex;
+  width: 15%;
+  justify-content: center;
+}
+
+.popupContainer .div-1 .pop-up-logo-box .spoonacular-logo{
+  width: 100%;
+  height: auto;
+  max-width: 100px;
+}
+
+.popupContainer .div-1 .nutrients-container{
+  width: 85%;
+}
+
+.popupContainer .div-1 .nutrients-container .nutrients-list{
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+  font-size: 1vw;
+}
+
+.popupContent .div-2{
+  height: 65%;
+  overflow: auto;
+  display: flex;
+}
+
+.popupContent .div-2 .ingredients-container{
+  width: 30%;
+  padding: 30px;
+  height: 100%;
+  border-right: 2px black solid;
+}
+
+.popupContent .div-2 .steps-container{
+  width: 70%;
+  height: 100%;
+  padding: 30px;
+}
+
+.popupContent .div-3{
+  height: 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+}
+
+.popupContent .div-3 h2.recipe-title{
+  color: white !important;
+  font-size: 1.7vw;
+  align-self: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding-left: 5%;
+}
+
+.nutrients-container h2, .ingredients-container h2, .steps-container h2{
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.nutrients-container li, .ingredients-container li, .steps-container li {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1500px){
+  /* Search field */
+  .searchInput {
+    width: 30rem; 
+    height: 3rem;
+    font-size: 17px;
+  }
+
+  .searchInputIcon {
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+  }
+
+  /* Filters */
+  .filter-container {
+    gap: 15px;
+    margin: 3% 5% 3%;
+    font-size: 1.5vw;
+  }
+  select {
+    font-size: 10px;
+  }
+
+    /* Popup container */
+    .popupContainer .div-1 .nutrients-container .nutrients-list{
+      font-size: 1.5vw;
+    }
+}
+
+@media screen and (max-width: 900px){
+  /* Search field */
+  .searchInput {
+    width: 30rem; 
+    height: 3rem;
+    font-size: 15px;
+  }
+
+  .searchInputIcon {
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+  }
+
+  /* Header */
+  header .logo-title{
+    font-size: 13px;
+  }
+
+  header .motto{
+    font-size: 9px;
+  }
+
+  .navlinks > li {
+    font-size: 8.5px;
+  }
+
+  /* Recipe results */
+  .recipeCard .spoonacular-logo{
+    width: 15%;
+    align-self: center;
+    padding: 5% 5% 5%;
+  }
+
+  .recipeCard .spoonacular .spoonacular-name{
+    font-size: 12px;
+  }
+
+  .recipeCard .recipe-title {
+    font-size: 80%;
+  }
+
+  /* Filters */
+  .filter-container {
+    gap: 10px;
+    margin: 3% 5% 3%;
+    font-size: 1vw;
+  }
+  
+  select {
+    font-size: 10px;
+  }
+
+  /* Popup container */
+  .popupContainer .div-1 .nutrients-container .nutrients-list{
+    font-size: 1.5vw;
+  }
+}
+
+
+/*
+FOOTER
+*/
+.footer {
+  flex-shrink: 0;
+  display: block;
+  clear: both;
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 100px;
+  font-family: Roboto;
+  background: linear-gradient(360deg, #3C5A14, #EBEBEB);
+  overflow: hidden;
+}
+
+.container-footer {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-title {
+  overflow: hidden;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: #3C5A14;
+  font-size: 5em;
+  text-shadow: 0px 5px black;
+  text-align: center;
+}
+
+.content-footer {
+  overflow: hidden;
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-info {
+  overflow: hidden;
+  width: 400px;
+  margin-left: 50px;
+}
+
+.media-info li {
+  overflow: hidden;
+  list-style: none;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.media-info li:hover {
+  text-decoration: underline;
+}
+
+.media-info li a {
+  color: #11270B;
+  text-decoration: none;
+}
+
+.media-info li a:hover {
+  color: #FFED00;
+  text-decoration: underline;
+}
+
+.media-info li:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.contact-form {
+  overflow: hidden;
+  background: #3C5A14;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.contact-form h6 {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  color: #66BB69;
+  text-shadow: 0px 2px black;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.contact-form .form-group input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  font-size: 17px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.contact-form .form-group button {
+  display: block;
+  margin: auto;
+  background: #11270B;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 17px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.contact-form .form-group button:hover {
+  color: black;
+  background: #FFED00;
+}
+
+main {
+  flex: 1 0 auto;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/*
+CREDITS
+*/
+.footer-bottom {
+  background-color: #11270B;
+  width: 100vw;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-bottom h6 {
+  color: #fff;
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.footer-bottom span {
+  color: #FFED00;
+  text-transform: uppercase;
+  font-weight: 200;
+}

@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*{
+  font-family: Roboto;
+  margin: 0%;
+  padding: 0%;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+/*
+HEADER 
+*/  
+header {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+
+header .logo {
+  align-self: center;
+  height: 12vmin;
+  margin: 1.5% 0 0;
+  padding-right: 0.5%;
+}
+
+header .logo-title{
+  font-size: 2.3vw;
+  text-align: center;
+  font-weight: bold;
+  padding: 0 0 0.5%
+}
+
+header .motto{
+  font-size: 1.3vw;
+  font-weight: bold;
+}
+
+header .green {
+  color: #66BB69;
+}
+
+.navbar {
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.navlinks {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.navlinks > li {
+  list-style: none;
+  font-size: 1.1vw;;
+  font-weight: bold;
+}
+
+.navlinks > li:hover {
+  color: green;
+  cursor: pointer;
+}
+
+.navlinks a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: green;
+  cursor: pointer;
+}
+
+/*
+MAIN
+*/  
+main {
+  width: 100%;
+  padding-bottom: 100px;
+  background-color: #fff;
+  overflow-x: hidden;
+  background: linear-gradient(360deg, #EBEBEB, #fff);
+}
+
+section {
+  margin-left: 23%;
+  margin-right: 15%;
+  padding-top: 50px;
+}
+
+main h1 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: #3C5A14;
+  font-size: 3.5em;
+  text-shadow: 0px 2px black;
+}
+
+main h4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.content-info {
+  margin-bottom: 60px;
+}
+
+/*
+DEVELOPERS
+*/
+
+.developer-info {
+  margin-left: 7%;
+  margin-bottom: 60px;
+  padding-top: 20px;
+  display: flex;
+}
+
+.developer-image img {
+  width: 200px;
+  height: 200px;
+  border: 5px 5px solid #11270B;
+}
+
+.developer-content {
+  width: 500px;
+  margin-left: 10%;
+}
+
+.developer-content h2{
+  font-size: 2em;
+}
+
+.developer-content h5{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+ 
+/*
+FOOTER
+*/
+.footer {
+  display: block;
+  clear: both;
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 100px;
+  font-family: Roboto;
+  background: linear-gradient(360deg, #3C5A14, #EBEBEB);
+  overflow: hidden;
+}
+
+.container-footer {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-title {
+  overflow: hidden;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: #3C5A14;
+  font-size: 5em;
+  text-shadow: 0px 5px black;
+  text-align: center;
+}
+
+.content-footer {
+  overflow: hidden;
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-info {
+  overflow: hidden;
+  width: 400px;
+  margin-left: 50px;
+}
+
+.media-info li {
+  overflow: hidden;
+  list-style: none;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.media-info li:hover {
+  text-decoration: underline;
+}
+
+.media-info li a {
+  color: #11270B;
+  text-decoration: none;
+}
+
+.media-info li a:hover {
+  color: #FFED00;
+  text-decoration: underline;
+}
+
+.media-info li:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.contact-form {
+  overflow: hidden;
+  background: #3C5A14;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.contact-form h6 {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  color: #66BB69;
+  text-shadow: 0px 2px black;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.contact-form .form-group input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  font-size: 17px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.contact-form .form-group button {
+  display: block;
+  margin: auto;
+  background: #11270B;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 17px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.contact-form .form-group button:hover {
+  color: black;
+  background: #FFED00;
+}
+
+/*
+CREDITS
+*/
+.footer-bottom {
+  background-color: #11270B;
+  width: 100vw;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-bottom h6 {
+  color: #fff;
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.footer-bottom span {
+  color: #FFED00;
+  text-transform: uppercase;
+  font-weight: 200;
+}

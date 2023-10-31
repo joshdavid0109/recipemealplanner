@@ -11,6 +11,8 @@ main {
     overflow: hidden;
 }
 
+
+
 /*
 NAV BAR
 */
@@ -35,6 +37,10 @@ NAV BAR
     padding-right: 0.5%;  
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
 #navbar .green {
     color: #66BB69;
 }
@@ -46,6 +52,8 @@ NAV BAR
     align-items: center;
     width: 100%;
 }
+
+
   
 .navlinks {
     display: flex;
@@ -155,6 +163,11 @@ hr {
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 .view-recipes-btn:hover {
@@ -396,6 +409,7 @@ MEAL-PLAN
 FOOTER
 */
 .footer {
+    margin-top: 100%;
     width: 100%;
     height: fit-content;
     padding-bottom: 100px;
