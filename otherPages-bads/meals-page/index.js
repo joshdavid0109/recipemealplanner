@@ -1,4 +1,4 @@
-const apiKey = 'ef33a96b0f7e4e488bb63498044aac80';
+const apiKey = 'd11c4d40523f46a5a767e57254b8fe2d';
 // '1d8e205d231542548f75f8be9391d509' // used 
 // '42d0741f34194e32ad48aa85fefe25e1'; // used
 // '2886e781d9574d92bfa049cefe0af1d6'; // used
@@ -25,10 +25,12 @@ var m;
 function clearMealplan(event) {
   var wrapperDiv = document.getElementById("wrapper");
 
+  if (wrapperDiv.hasChildNodes) {
   while (wrapperDiv.hasChildNodes) {
     // console.log(wrapperDiv.childNodes)
     wrapperDiv.removeChild(wrapperDiv.firstChild);
   }
+}
 }
 
 
@@ -921,10 +923,10 @@ function generatemeal(){
       }).then (nutritionData => {
 
         const markup = 
-        `<li draggable="true" id="${nutrition.id}">
+        `<li draggable="true" id="${nutritionData.id}">
         <div class="inside-li">
           <div class="food-image">
-            <img id="image-li" src="${d.image}" style="width: 100px;" alt="${nutrition.id}">
+            <img id="image-li" src="${d.image}" style="width: 100px;" alt="${nutritionData.id}">
           </div>
           <div class="food-name-serving">
             <div class="row" >
@@ -1031,7 +1033,7 @@ function generatemeal(){
 
 
       
-      breakfastList.addEventListener('click', showInfo(event, recipe.id));
+     
 
 
       });
@@ -1476,8 +1478,6 @@ function handleRefreshButtonClick(event) {
 
     var im = document.getElementById("image-li");
     var parent = event.target.parentNode.parentNode.parentNode;
-
-  
     var altvalue = im.getAttribute("alt");
 
     
@@ -1491,8 +1491,6 @@ function handleRefreshButtonClick(event) {
       }
   });
 
-
-    
 
     im.addEventListener('click', async () => {
       console.log("inside event listener")
