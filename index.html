@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/otherPages-bads/homePage/style.css">
+    <link rel="stylesheet" href="otherPages-bads/homePage/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
     <main>
         <!--Nab-Bar-->
         <nav id="navbar">
-            <img class="logo" src="/images/logo.png" alt="logo">
+            <img class="logo" src="images/logo.png" alt="logo">
         
             <div class="links">
                 <ul class="navlinks">
@@ -63,7 +63,7 @@
     
             <div id="header-right-side">
                 <div>
-                    <img class="plate" src="images/FOOD-removebg-preview.png" alt="header-image">
+                    <img class="plate" src="otherPages-bads/homePage/resources/FOOD-removebg-preview.png" alt="header-image">
                 </div>
             </div>
         </section>
@@ -72,12 +72,12 @@
         <section id="about">
             <div class="left-side">
                 <div>
-                    <img src="images/food-1.jpg" alt="food-1">
+                    <img src="otherPages-bads/homePage/resources/food-1.jpg" alt="food-1">
                 </div>
                 
                 <div class="second-img-container">
-                    <img src="images/food-2.jpg" alt="food-2">
-                    <img src="images/food-3.jpg" alt="food-3">
+                    <img src="otherPages-bads/homePage/resources/food-2.jpg" alt="food-2">
+                    <img src="otherPages-bads/homePage/resources/food-3.jpg" alt="food-3">
                 </div>
             </div>
 
@@ -98,7 +98,7 @@
                     the nutritional content of your meals is the first step toward achieving your health and wellness goals.
                 </p>
 
-                <a class="more-info" href="#">More Info</a>
+                <a class="more-info" href="otherPages-bads/about-page/about.html">More Info</a>
             </div>
         </section>
 
@@ -111,7 +111,7 @@
                 <div class="content">
     
                     <div class="image">
-                        <img id="img-01" src="images/preparing.webp" alt="image_01" onmouseover="changeImage(1, this)"  onmouseout="changeImage(2, this)">
+                        <img id="img-01" src="otherPages-bads/homePage/resources/preparing.webp" alt="image_01" onmouseover="changeImage(1, this)"  onmouseout="changeImage(2, this)">
                     </div>
     
                     <div class="text-box">
@@ -120,10 +120,8 @@
                             Meal planning is a valuable tool for tracking calories, 
                             helping achieve dietary and weight management goals, promoting 
                             healthier eating, and making long-term dietary changes sustainable.
-                        </p>
-
-                        
-                        <a class="create-plan" href="/otherPages-bads/meals-page/meal-page.html">CREATE MEAL PLAN</a>
+                        </p>    
+                        <a class="create-plan" href="otherPages-bads/meals-page/meal-page.html">CREATE MEAL PLAN</a>
                     </div>
                 </div>
             </div>
@@ -201,11 +199,11 @@
 
         function changeImage(x, image) {
             if(x==1) {
-                image.src = 'images/food-2.jpg'
+                image.src = 'otherPages-bads/homePage/resources/food-2.jpg'
             } 
             
             if (x==2) {
-                image.src = 'images/preparing.webp'
+                image.src = 'otherPages-bads/homePage/resources/preparing.webp'
             }
         }
 
